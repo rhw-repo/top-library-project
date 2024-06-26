@@ -1,1 +1,32 @@
-/* add styles here */
+/*TODO: self host a font as ost https://fontsource.org/ */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  height: 100dvh;
+  height: 100vh;
+}
+
+.main__navbar,
+.main__navbar__button {
+  padding: 1rem;
+}
+
+.main__navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #5b6d92;
+  color: #d5e3e6;
+}
+
+.main__navbar__h1 {
+  font-size: 4rem;
+}
+
+.main__navbar__button {
+  border: 1px solid black;
+  border-radius: 1rem;
+  background: #d5e3e6;
+  color: #364042;
+  font-size: 2rem;
+}
