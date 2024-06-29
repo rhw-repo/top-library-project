@@ -7,9 +7,8 @@ https://www.theodinproject.com/lessons/node-path-javascript-library#project-solu
 
 // Create an Array
 const myLibrary = [];
- // the constructor...
+// the constructor...
 function Book(title, author, pages, read) {
- 
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -25,3 +24,14 @@ function Book(title, author, pages, read) {
 function addBookToLibrary() {
   // add code here
 }
+
+// this is what the dialog element to use here is, JavaScript
+  const dialog = document.querySelector("#dialog");
+  // this is what the button element to use here is, JavaScript
+  const button = document.querySelector("#add");
+// now add the Event Listener to the selected button 
+  button.addEventListener("click", () => {  
+    // have dialog working as a true modal
+    dialog.showModal();
+  });
+

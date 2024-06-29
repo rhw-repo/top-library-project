@@ -3,19 +3,35 @@
 2. Build form display onClick of Add new book button-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=ç, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=ç, initial-scale=1.0" />
     <title>Document</title>
- <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <main>
-<navbar class="main__navbar">
-    <h1 class="main__navbar__h1">Library App</h1>
-    <button class="main__navbar__button"><span>+ </span>Add new book</button>
-</navbar>
+      <navbar class="main__navbar">
+        <h1 class="main__navbar__h1">Library App</h1>
+        <button class="main__navbar__btn" id="add">Add new book</button>
+      </navbar>
+      <!--attach an id for easy finding by JS to attach Event Listener-->
+      <dialog class="main__dialog" id="dialog">
+        <form method="dialog" class="dialog__form">
+          <button type="button" class="dialog__form--close-btn">X</button>
+          <label for="title" class="dialog__form__label--title">Title:</label>
+          <input type="text" class="dialog__form__input--title"/>
+          <label for="author" class="dialog__form__label--author">
+            Written by:</label
+          >
+          <input type="text" class="dialog__form__input--author"/>
+          <label for="read" class="dialog__form__label--read">Read or not read yet? </label>
+          <input type="checkbox" class="dialog__slider">
+          <span class="dialog__slider"></span>
+          <button type="submit" class="dialog__form--submit-btn">Submit</button>
+        </form>
+      </dialog>
     </main>
-</body>
-<script src="./main.js"></script>
+  </body>
+  <script src="./main.js"></script>
 </html>
