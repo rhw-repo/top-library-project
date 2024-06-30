@@ -1,33 +1,36 @@
-<!--TODO 
-1. Replace span with icon
-2. Build form display onClick of Add new book button-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=ç, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Book Log</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/a25906fcbb.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <main>
       <navbar class="main__navbar">
-        <h1 class="main__navbar__h1">Library App</h1>
-        <button class="main__navbar__btn" id="add">Add new book</button>
+               <img src="./pexels-pixabay-159866.png" alt="A pile of books with the top book on it's spine and all it's pages open" class="main__navbar__img"> 
+               <h1 class="main__navbar__h1">Book Log</h1>
+        <button class="main__navbar__btn" id="add"><span><i class="fa-solid fa-book-medical"></i></span></i>Add book</button>
       </navbar>
-      <!--attach an id for easy finding by JS to attach Event Listener-->
       <dialog class="main__dialog" id="dialog">
         <form method="dialog" class="dialog__form">
           <button type="button" class="dialog__form--close-btn">X</button>
           <label for="title" class="dialog__form__label--title">Title:</label>
-          <input type="text" class="dialog__form__input--title"/>
+          <input type="text-area" class="dialog__form__input--title" />
           <label for="author" class="dialog__form__label--author">
             Written by:</label
           >
-          <input type="text" class="dialog__form__input--author"/>
-          <label for="read" class="dialog__form__label--read">Read or not read yet? </label>
-          <input type="checkbox" class="dialog__slider">
-          <span class="dialog__slider"></span>
+          <input type="text" class="dialog__form__input--author" />
+          <div class="dialog__form__toggle-label">
+            <b>Mark as read</b>
+            <br /><br />
+          </div>
+          <div class="dialog__form__toggle-switch">
+            <input type="checkbox" id="switch" class="dialog__form__checkbox" />
+            <label for="switch" class="dialog__form__toggle"> </label>
+          </div>
           <button type="submit" class="dialog__form--submit-btn">Submit</button>
         </form>
       </dialog>

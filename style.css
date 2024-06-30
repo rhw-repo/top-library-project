@@ -1,7 +1,15 @@
-/*TODO: self host a font as ost https://fontsource.org/ */
+@font-face {
+  font-family: "Open Sans", sans-serif;
+  src: url(./fonts/open-sans-latin-400-normal.woff),
+    url(./fonts/open-sans-latin-400-normal.woff2);
+}
+
+html {
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   height: 100dvh;
   height: 100vh;
 }
@@ -13,20 +21,31 @@ body {
 
 .main__navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  background: #5b6d92;
-  color: #d5e3e6;
+  background: rgb(0, 57, 103);
+  color: #ffffff;
+  border-radius: 1rem;
 }
 
 .main__navbar__h1 {
-  font-size: 4rem;
+  font-size: 8rem;
+  margin-left: 1rem;
+}
+
+.main__navbar__img {
+  width: 20%;
+  border-radius: 1rem;
 }
 
 .main__navbar__btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
   border: 1px solid black;
   border-radius: 1rem;
-  background: #d5e3e6;
+  background: #f1f4e1;
   color: #364042;
   font-size: 2rem;
   padding: 1rem;
@@ -37,66 +56,114 @@ dialog {
 }
 
 .main__dialog[open] {
-display: flex;
-justify-content: center;
-border-radius: 1rem;
-width:fit-content;
+  display: flex;
+  justify-content: center;
+  border-radius: 1rem;
 }
 
 .dialog__form {
   display: grid;
   grid-template-columns: 40% 60%;
-  grid-template-rows: repeat(8, 1fr);
-  gap: 0.625rem;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 1rem;
   padding: 1rem;
 }
 
 .dialog__form--close-btn {
   grid-row: 1 / 2;
   grid-column: 2 / 3;
-  height: 2rem;
-  width: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
   border-radius: 50%;
   justify-self: end;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
 }
 
-label {
-  font-weight: 800;
+label,
+b {
+  font-weight: 600;
 }
 
 .dialog__form__label--title {
-  grid-row: 3 / 4;
+  grid-row: 2 / 3;
   grid-column: 1 / 2;
 }
 
+.dialog__form__input--author,
 .dialog__form__input--title {
-  grid-row: 3 / 4;
+  border-radius: 1rem;
+}
+
+.dialog__form__input--title {
+  grid-row: 2 / 3;
   grid-column: 2 / 3;
 }
 
 .dialog__form__label--author {
-  grid-row: 4 / 5;
+  grid-row: 3 / 4;
   grid-column: 1 / 2;
 }
 
 .dialog__form__input--author {
-  grid-row: 4 / 5;
+  grid-row: 3 / 4;
   grid-column: 2 / 3;
 }
 
-.dialog__form__label--read {
-  grid-row: 5 / 6;
+.dialog__form__toggle-label {
+  grid-row: 4 / 5;
   grid-column: 1 / 2;
 }
 
-.dialog__slider {
-  grid-row: 5 / 6;
+.dialog__form__toggle-switch {
+  grid-row: 4 / 5;
   grid-column: 2 / 3;
-  justify-self: end;
-  border-radius: 2.12rem;
+  justify-self: start;
+}
+
+/* Forms the 'box' around the toggle switch*/
+.dialog__form__toggle {
+  position: relative;
+  display: inline-block;
+  width: 3.125rem;
+  height: 1.625rem;
+  background-color: red;
+  border-radius: 0.9375rem;
+  border: 0.0625rem solid gray;
+}
+
+/* After slide changes */
+.dialog__form__toggle:after {
+  content: "";
+  position: absolute;
+  width: 1.5625rem;
+  height: 1.5625rem;
+  border-radius: 50%;
+  background-color: gray;
+  top: 0.03125rem;
+  left: 0.03125rem;
+  transition: all 0.5s;
+}
+
+/* Checkbox checked: toggle switch slid over effect */
+.dialog__form__checkbox:checked + .dialog__form__toggle::after {
+  left: 1.53125rem;
+}
+
+/* Initial colors before toggle switch slid over */
+.dialog__form__checkbox:checked + .dialog__form__toggle {
+  background-color: green;
+}
+
+/* Hide default checkbox display */
+.dialog__form__checkbox {
+  display: none;
 }
 
 .dialog__form--submit-btn {
-  grid-row: 6 / 7;
-  grid-column: 1 / span 2;
+  grid-row: 5 / 6;
+  grid-column: 1 / -1;
+  justify-self: center;
+  padding: 0 3rem;
+  border-radius: 1rem;
 }
