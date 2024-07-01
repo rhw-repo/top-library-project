@@ -193,3 +193,15 @@ b {
   padding: 0 3rem;
   border-radius: 1rem;
 }
+
+.card {
+  background-color: #ffffff;
+  color: black;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6),
+  0 6px 12px rgba(255,255,255,0.3);
+  transition: 0.3s;
+  width: 40%;
+  height: fit-content;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
