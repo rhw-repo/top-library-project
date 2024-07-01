@@ -11,28 +11,14 @@
   <body>
     <main>
       <header class="header">  
-        <section class="header__title-logo">
-            <h1 class="header__h1">Book</h1>
-            <div class="header__log-grid">
-                <span class="header__h1-span">Log</span>
-                <div class="header__span-container">
-                    <span class="header__span header__span--straight"></span>
-                    <span class="header__span header__span--straight"></span>
-                    <span class="header__span header__span--rotated"></span>
-                    <!--span class="header__span header__span--horizontal"></span-->
-                </div>
-                <div class="header__span-container--horizontal">
-                    
-                </div>
-            </div>
-        </section>
-        <img src="./pexels-karolina-grabowska-4219041.png" 
-             alt="A pile of books ready for reading, on top of a wooden stool." 
-             class="header__img">      
+         <h1 class="header__h1">Book <br>Log</h1>
+         <p class="header__p">Keep track of all your favorite books.</p>
+               <img src="./pexels-karolina-grabowska-4219041.png" 
+               alt="A pile of books ready for reading, on top 
+               of a wooden stool." 
+               class="header__img">      
     </header>
     
-    
-
     <navbar class="navbar">
         <button class="navbar__add-btn" id="add"><span>
           <i class="fa-solid fa-book-medical"></i></span></i>
@@ -62,6 +48,12 @@
           </button>
         </form>
       </dialog>
+      <div class="card">
+        <div class="card__title">Title</div>
+        <div class="card__author">Author</div>
+        <div class="card__pages">No. of pages: </div>
+        <div class="card__read-status">Read yet?</div>
+      </div>
     </main>
   </body>
   <script src="./main.js"></script>
