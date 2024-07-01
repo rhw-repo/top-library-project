@@ -37,7 +37,7 @@ main {
 
 .header__h1 {
   font-size: 6rem;
-  letter-spacing: 4px;;
+  letter-spacing: 4px;
   margin-left: 1rem;
   margin-bottom: 2rem;
   margin-top: 0.5rem;
@@ -74,7 +74,6 @@ main {
   font-size: 2rem;
   padding: 1rem;
   margin: 1rem;
-
 }
 
 dialog {
@@ -197,8 +196,8 @@ b {
 .card {
   background-color: #ffffff;
   color: black;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.6),
-  0 6px 12px rgba(255,255,255,0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6),
+    0 6px 12px rgba(255, 255, 255, 0.3);
   transition: 0.3s;
   width: 40%;
   height: fit-content;
