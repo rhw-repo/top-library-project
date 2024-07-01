@@ -21,9 +21,20 @@ function Book(title, author, pages, read) {
   };
 }
 
-function addBookToLibrary() {
-  // add code here
+function buttonClicked() {
+  const btn = document.getElementById("submit-btn");
+  e.preventDefault();
+  btn.addEventListener("click", (e) => () {
+ console.log("Button clicked")
+  })
 }
+buttonClicked();
+
+function addBookToLibrary() {
+  // code here
+}
+
+
 
 // this is what the dialog element to use here is, JavaScript
   const dialog = document.querySelector("#dialog");
