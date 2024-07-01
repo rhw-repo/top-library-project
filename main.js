@@ -13,36 +13,50 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+  console.log(this);
   // agregate and concatenate to make intelligble string
   this.info = function info() {
     return (
+      // or  `${title} by ${author}, ${pages} pages, ${read}`;
       this.title + " by " + this.author + this.pages + " pages, " + this.read
     );
   };
 }
 
-function buttonClicked() {
-  const btn = document.getElementById("submit-btn");
-  e.preventDefault();
-  btn.addEventListener("click", (e) => () {
- console.log("Button clicked")
-  })
-}
-buttonClicked();
+const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not read yet");
+myLibrary.push(theHobbit);
+console.log(myLibrary);
 
 function addBookToLibrary() {
-  // code here
+  // add code here
+  const frm = document.getElementById("myForm");
+
+  const btn = document.querySelector("#submit-btn");
+  btn.addEventListener("click", (e) => {
+   
+    console.log("Submit clicked");
+    btn.style.color = "blue";
+    const myBook = new Book(
+      document.getElementById("title").value,
+      document.getElementById("author").value,
+      //document.getElementById("pages").value,
+      //document.getElementById("read").value
+    );
+    myLibrary.push(myBook);
+   e.preventDefault();
+  });
 }
 
-
+addBookToLibrary();
+console.log(myLibrary);
 
 // this is what the dialog element to use here is, JavaScript
-  const dialog = document.querySelector("#dialog");
-  // this is what the button element to use here is, JavaScript
-  const button = document.querySelector("#add");
-// now add the Event Listener to the selected button 
-  button.addEventListener("click", () => {  
-    // have dialog working as a true modal
-    dialog.showModal();
-  });
-
+const dialog = document.querySelector("#dialog");
+// this is what the button element to use here is, JavaScript
+const button = document.querySelector("#add");
+// now add the Event Listener to the selected button
+button.addEventListener("click", () => {
+  // have dialog working as a true modal
+  dialog.showModal();
+  button.style.color = "red";
+});
