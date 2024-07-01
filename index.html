@@ -5,16 +5,38 @@
     <meta name="viewport" content="width=ç, initial-scale=1.0" />
     <title>Book Log</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/a25906fcbb.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a25906fcbb.js" 
+    crossorigin="anonymous"></script>
   </head>
   <body>
     <main>
-      <navbar class="main__navbar">
-               <img src="./pexels-pixabay-159866.png" alt="A pile of books with the top book on it's spine and all it's pages open" class="main__navbar__img"> 
-               <h1 class="main__navbar__h1">Book Log</h1>
-        <button class="main__navbar__btn" id="add"><span><i class="fa-solid fa-book-medical"></i></span></i>Add book</button>
-      </navbar>
-      <dialog class="main__dialog" id="dialog">
+      <header class="header">  
+         <h1 class="header__h1">Book <br>Log   
+        </h1>
+        <section class="header__span-container">
+        <span class="header__span header__span--straight"></span>
+         <span class="header__span header__span--straight"></span>
+         <span class="header__span header__span--rotated"></span>
+         <br><br>
+        
+        </section>
+        <section class="header__span-container--horizontal">
+           <span class="header__span header__span--horizontal"></span>
+        </section>
+               <img src="./pexels-karolina-grabowska-4219041.png" 
+               alt="A pile of books ready for reading, on top 
+               of a wooden stool." 
+               class="header__img">      
+    </header>
+
+    <navbar class="navbar">
+        <button class="navbar__add-btn" id="add"><span>
+          <i class="fa-solid fa-book-medical"></i></span></i>
+        Add book
+      </button>
+    </navbar>
+
+      <dialog class="dialog" id="dialog">
         <form method="dialog" class="dialog__form">
           <button type="button" class="dialog__form--close-btn">X</button>
           <label for="title" class="dialog__form__label--title">Title:</label>
@@ -28,10 +50,12 @@
             <br /><br />
           </div>
           <div class="dialog__form__toggle-switch">
-            <input type="checkbox" id="switch" class="dialog__form__checkbox" />
+            <input type="checkbox" id="switch" class="dialog__form__checkbox"/>
             <label for="switch" class="dialog__form__toggle"> </label>
           </div>
-          <button type="submit" class="dialog__form--submit-btn">Submit</button>
+          <button type="submit" class="dialog__form--submit-btn">
+            Submit
+          </button>
         </form>
       </dialog>
     </main>
