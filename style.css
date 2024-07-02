@@ -156,24 +156,21 @@ b {
   grid-row: 5 / 6;
   grid-column: 2 / 3;
   justify-self: start;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
 }
 
-/* Forms the 'box' around the toggle switch */
+/* Forms the 'box' around the toggle switch*/
 .dialog__form__toggle {
   position: relative;
+  display: inline-block;
   width: 3.125rem;
   height: 1.625rem;
   background-color: red;
   border-radius: 0.9375rem;
   border: 0.0625rem solid gray;
-  /*cursor: pointer;*/
 }
 
 /* After slide changes */
-.dialog__form__toggle::after {
+.dialog__form__toggle:after {
   content: "";
   position: absolute;
   width: 1.5625rem;
@@ -186,14 +183,19 @@ b {
 }
 
 /* Checkbox checked: toggle switch slid over effect */
-.dialog__form__checkbox:checked ~ .dialog__form__toggle::after {
+.dialog__form__checkbox:checked + .dialog__form__toggle::after {
   left: 1.53125rem;
 }
 
 /* Initial colors before toggle switch slid over */
-.dialog__form__checkbox:checked ~ .dialog__form__toggle {
+.dialog__form__checkbox:checked + .dialog__form__toggle {
   background-color: green;
 }
+
+/* Hide default checkbox display
+.dialog__form__checkbox {
+  display: none;
+} */
 
 /* Hide default checkbox display */
 .dialog__form__checkbox {

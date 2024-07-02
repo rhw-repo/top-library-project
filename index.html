@@ -43,11 +43,14 @@
           <label for="pages" id="pages" class="dialog__form__label--pages">No. of pages:</label>
           <input type="number" min="1" value="1" name="pages" id="pages" class="dialog__form__input--pages">
           
-          <label for="switch" class="dialog__form__toggle-label">Mark as read:</label>
-          <label class="dialog__form__toggle-switch" aria-label="Toggle Mark as read">
-            <input type="checkbox" name="switch" id="switch" class="dialog__form__checkbox" required aria-required="true"/>
-            <span class="dialog__form__toggle"></span>
-          </label>
+          <div class="dialog__form__toggle-label" aria-label="Section to mark if the book has been read">
+            <b>Mark as read</b>
+            <br /><br />
+          </div>
+          <div class="dialog__form__toggle-switch">
+            <input type="checkbox" id="switch" class="dialog__form__checkbox"/>
+            <label for="switch" class="dialog__form__toggle" aria-label="Toggle switch to mark if the book has been read"> </label>
+          </div>
         
           <button id="submit-btn" type="submit" class="dialog__form--submit-btn" >
             Submit
@@ -64,5 +67,7 @@
 
     </main>
   </body>
+  <script type="text/javascript" src="dist/purify.min.js"></script>
   <script src="./main.js"></script>
+  
 </html>

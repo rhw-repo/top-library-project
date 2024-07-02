@@ -5,6 +5,10 @@ take user’s input and store the new book objects into an array.
 https://www.theodinproject.com/lessons/node-path-javascript-library#project-solution
 */
 
+
+console.log('DOMPurify:', DOMPurify); 
+
+
 // Create an Array
 const myLibrary = [];
 // the constructor...
@@ -29,34 +33,41 @@ console.log(myLibrary);
 
 // Select the form
 const form = document.getElementById("myForm");
+// add Event Listener to the submit, prevent default submission
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  // Create a new FormData object
+  // pass form element to FormData built in constructor
+  // automatically captures input field names & their values
+  // stores those as a key value pair - name & value
+  const formData = new FormData(form);
+
+ // Sanitize inputs using DOMPurify
+ const sanitizedTitle = DOMPurify.sanitize(formData.get('title'));
+ const sanitizedAuthor = DOMPurify.sanitize(formData.get('author'));
+ const sanitizedPages = DOMPurify.sanitize(formData.get('pages'));
+ const sanitizedRead = DOMPurify.sanitize(formData.get('switch'));
+
+ // Log sanitized inputs to console for verification
+ console.log('Sanitized Title:', sanitizedTitle);
+ console.log('Sanitized Author:', sanitizedAuthor);
+ console.log('Sanitized Pages:', sanitizedPages);
+ console.log('Sanitized Read:', sanitizedRead);
+});
+
 // Select the form's button
 const btn = document.querySelector("#submit-btn");
 
-function validateForm() {
-
+function addBookToLibrary(frm) {
+  // add code here
 }
-
-/*function addBookToLibrary(frm) {
-  const myBook = new Book(
-   // document.this("title").value,
-   // document.this("author").value
-    //document.getElementById("pages").value,
-    //document.getElementById("read").value
-  );
-  //myLibrary.push(myBook);
-  
-}*/
 
 // Add an Event Listener to this button
 btn.addEventListener("click", (e) => {
-  //e.preventDefault();
   console.log("Submit button clicked");
   btn.style.color = "blue";
-  //addBookToLibrary();
-  console.log(myLibrary);
 });
-
-
 
 // this is what the dialog element to use here is, JavaScript
 const dialog = document.querySelector("#dialog");
