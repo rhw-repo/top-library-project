@@ -27,28 +27,36 @@ const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not read yet");
 myLibrary.push(theHobbit);
 console.log(myLibrary);
 
-function addBookToLibrary() {
-  // add code here
-  const frm = document.getElementById("myForm");
+// Select the form
+const form = document.getElementById("myForm");
+// Select the form's button
+const btn = document.querySelector("#submit-btn");
 
-  const btn = document.querySelector("#submit-btn");
-  btn.addEventListener("click", (e) => {
-   
-    console.log("Submit clicked");
-    btn.style.color = "blue";
-    const myBook = new Book(
-      document.getElementById("title").value,
-      document.getElementById("author").value,
-      //document.getElementById("pages").value,
-      //document.getElementById("read").value
-    );
-    myLibrary.push(myBook);
-   e.preventDefault();
-  });
+function validateForm() {
+
 }
 
-addBookToLibrary();
-console.log(myLibrary);
+/*function addBookToLibrary(frm) {
+  const myBook = new Book(
+   // document.this("title").value,
+   // document.this("author").value
+    //document.getElementById("pages").value,
+    //document.getElementById("read").value
+  );
+  //myLibrary.push(myBook);
+  
+}*/
+
+// Add an Event Listener to this button
+btn.addEventListener("click", (e) => {
+  //e.preventDefault();
+  console.log("Submit button clicked");
+  btn.style.color = "blue";
+  //addBookToLibrary();
+  console.log(myLibrary);
+});
+
+
 
 // this is what the dialog element to use here is, JavaScript
 const dialog = document.querySelector("#dialog");

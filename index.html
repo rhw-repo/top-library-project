@@ -31,22 +31,24 @@
     </navbar>
 
       <dialog class="dialog" id="dialog">
+        <!--if action attribute omitted action set to current page-->
         <form method="dialog" class="dialog__form" id="myForm">
           <button type="button" class="dialog__form--close-btn">X</button>
           <label for="title" class="dialog__form__label--title">Title:</label>
-          <input type="text-area" class="dialog__form__input--title" />
+          <input type="text-area" rows="15" cols="10" name="title" class="dialog__form__input--title" required aria-required="true" />
           <label for="author" class="dialog__form__label--author">
             Written by:</label
           >
-          <input type="text" class="dialog__form__input--author" />
-          <div class="dialog__form__toggle-label">
-            <b>Mark as read</b>
-            <br /><br />
-          </div>
-          <div class="dialog__form__toggle-switch">
-            <input type="checkbox" id="switch" class="dialog__form__checkbox"/>
-            <label for="switch" class="dialog__form__toggle"> </label>
-          </div>
+          <input type="text" name="author" class="dialog__form__input--author" required aria-required="true"/>
+          <label for="pages" id="pages" class="dialog__form__label--pages">No. of pages:</label>
+          <input type="number" min="1" value="1" name="pages" id="pages" class="dialog__form__input--pages">
+          
+          <label for="switch" class="dialog__form__toggle-label">Mark as read:</label>
+          <label class="dialog__form__toggle-switch" aria-label="Toggle Mark as read">
+            <input type="checkbox" name="switch" id="switch" class="dialog__form__checkbox" required aria-required="true"/>
+            <span class="dialog__form__toggle"></span>
+          </label>
+        
           <button id="submit-btn" type="submit" class="dialog__form--submit-btn" >
             Submit
           </button>

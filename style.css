@@ -89,7 +89,7 @@ dialog {
 .dialog__form {
   display: grid;
   grid-template-columns: 40% 60%;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   gap: 1rem;
   padding: 1rem;
 }
@@ -135,30 +135,45 @@ b {
   grid-column: 2 / 3;
 }
 
-.dialog__form__toggle-label {
+.dialog__form__label--pages {
   grid-row: 4 / 5;
   grid-column: 1 / 2;
 }
 
-.dialog__form__toggle-switch {
+.dialog__form__input--pages {
   grid-row: 4 / 5;
   grid-column: 2 / 3;
-  justify-self: start;
+  padding: 1rem;
+  height: 1rem;
 }
 
-/* Forms the 'box' around the toggle switch*/
-.dialog__form__toggle {
+.dialog__form__toggle-label {
+  grid-row: 5 / 6;
+  grid-column: 1 / 2;
+}
+
+.dialog__form__toggle-switch {
+  grid-row: 5 / 6;
+  grid-column: 2 / 3;
+  justify-self: start;
   position: relative;
   display: inline-block;
+  cursor: pointer;
+}
+
+/* Forms the 'box' around the toggle switch */
+.dialog__form__toggle {
+  position: relative;
   width: 3.125rem;
   height: 1.625rem;
   background-color: red;
   border-radius: 0.9375rem;
   border: 0.0625rem solid gray;
+  /*cursor: pointer;*/
 }
 
 /* After slide changes */
-.dialog__form__toggle:after {
+.dialog__form__toggle::after {
   content: "";
   position: absolute;
   width: 1.5625rem;
@@ -171,22 +186,26 @@ b {
 }
 
 /* Checkbox checked: toggle switch slid over effect */
-.dialog__form__checkbox:checked + .dialog__form__toggle::after {
+.dialog__form__checkbox:checked ~ .dialog__form__toggle::after {
   left: 1.53125rem;
 }
 
 /* Initial colors before toggle switch slid over */
-.dialog__form__checkbox:checked + .dialog__form__toggle {
+.dialog__form__checkbox:checked ~ .dialog__form__toggle {
   background-color: green;
 }
 
 /* Hide default checkbox display */
 .dialog__form__checkbox {
-  display: none;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  z-index: -1;
 }
 
 .dialog__form--submit-btn {
-  grid-row: 5 / 6;
+  grid-row: 6 / 7;
   grid-column: 1 / -1;
   justify-self: center;
   padding: 0 3rem;
@@ -197,7 +216,7 @@ b {
   background-color: #ffffff;
   color: black;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6),
-    0 6px 12px rgba(255, 255, 255, 0.3);
+    0 6px 12px rgba(152, 121, 121, 0.3);
   transition: 0.3s;
   width: 40%;
   height: fit-content;
