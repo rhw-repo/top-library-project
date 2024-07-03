@@ -110,6 +110,10 @@ b {
   font-weight: 600;
 }
 
+input {
+  padding: 1rem;
+}
+
 .dialog__form__label--title {
   grid-row: 2 / 3;
   grid-column: 1 / 2;
@@ -192,11 +196,9 @@ b {
   background-color: green;
 }
 
-/* Hide default checkbox display
 .dialog__form__checkbox {
   display: none;
 } */
-
 /* Hide default checkbox display */
 .dialog__form__checkbox {
   position: absolute;
@@ -214,7 +216,7 @@ b {
   border-radius: 1rem;
 }
 
-.card {
+.list{
   background-color: #ffffff;
   color: black;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6),
