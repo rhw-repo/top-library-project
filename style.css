@@ -1,5 +1,6 @@
 /* TO DO 
-Responsive and a11y testing*/
+Responsive and a11y testing
+*/
 @font-face {
   font-family: "Open Sans", sans-serif;
   src: url(./fonts/open-sans-latin-400-normal.woff),
@@ -210,10 +211,6 @@ input {
   background-color: var(--primary);
 }
 
-.dialog__form__checkbox {
-  display: none;
-}
-
 /* Hide default checkbox display */
 .dialog__form__checkbox {
   position: absolute;
@@ -244,9 +241,7 @@ input {
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  /*background-color: var(--text-display);*/
- /* background-color: #c0855b;*/
- background-color: #D4D5D7;
+  background-color: #dacbba;
   color: black;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6),
     0 6px 12px rgba(152, 121, 121, 0.3);
@@ -275,6 +270,7 @@ input {
   font-weight: bold;
 }
 
+/* Delete button */
 .book__delete {
   grid-column: span 2;
   justify-self: end;
@@ -298,7 +294,7 @@ input {
 
 .footer__credit,
 .footer__copyright {
-font-size: 0.75rem;
+  font-size: 0.75rem;
   color: var(--text-display);
   text-align: center;
 }
@@ -308,44 +304,8 @@ font-size: 0.75rem;
   text-decoration: underline;
 }
 
-
 @media (max-width: 600px) {
   .book {
     grid-template-columns: 1fr;
   }
 }
-
-
-/*.book {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
-  padding: 0.625rem;
-  border: 1px solid #ccc;
-  border-radius: 1rem;
-  margin: 1rem auto;
-}
-
-.book__label {
-  font-weight: bold;
-}
-
-.book__delete {
-  grid-column: span 2;
-  justify-self: end;
-  width: fit-content;
-  padding: 1rem 2rem;
-  background: var(--secondary);
-  color: var(--text-display);
-  font-weight: 600;
-  border: none;
-  border-radius: 1rem;
-  cursor: pointer;
-}
-
-@media (max-width: 600px) {
-  .book {
-    grid-template-columns: 1fr;
-  }
-}
-*/

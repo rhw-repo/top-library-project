@@ -5,9 +5,11 @@ take user’s input and store the new book objects into an array.
 https://www.theodinproject.com/lessons/node-path-javascript-library#project-solution
 */
 
-//TODO Debug needed doesn't even load resource
+/*TODO 
+1. Comment the deleteBtn execution code
+2. Debug needed DOMpurify doesn't even load resource
 // console.log('DOMPurify:', DOMPurify);
-/* Sanitize inputs using DOMPurify
+// Sanitize inputs using DOMPurify
  const sanitizedTitle = DOMPurify.sanitize(formData.get('title'));
  const sanitizedAuthor = DOMPurify.sanitize(formData.get('author'));
  const sanitizedPages = DOMPurify.sanitize(formData.get('pages'));
@@ -22,7 +24,7 @@ https://www.theodinproject.com/lessons/node-path-javascript-library#project-solu
 // Create an Array
 const myLibrary = [];
 
-// the constructor...
+// Constructor
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -37,7 +39,7 @@ myLibrary.push(theHobbit);
 console.log(myLibrary);
 displayBooks();
 
-// Push a new book to array, is later called with form input passed to it
+// Push a new book to array, is later called with form input data passed to it
 function addBookToLibrary(title, author, pages, read) {
   // Create a new Book object
   const newBook = new Book(title, author, pages, read);
