@@ -59,30 +59,35 @@ function displayBooks() {
   // Iterate over myLibrary array, create DOM elements for each book
   myLibrary.forEach((book) => {
     // Create a container
-    const addData = document.createElement("div");
-    // Create each element required within container
+    const bookContainer = document.createElement("div");
+    bookContainer.classList.add("book");
+
+    // Create each element required within container, add classes
     const bookTitleLabel = document.createElement("span");
     bookTitleLabel.classList.add("book__label", "book__label--title");
     const bookName = document.createElement("span");
     bookName.classList.add("book__name");
+
     const bookAuthorLabel = document.createElement("span");
     bookAuthorLabel.classList.add("book__label", "book__label--author");
     const bookAuthor = document.createElement("span");
     bookAuthor.classList.add("book__author");
+
     const bookPagesLabel = document.createElement("span");
     bookPagesLabel.classList.add("book__label", "book__label--pages");
     const bookPages = document.createElement("span");
     bookPages.classList.add("book__pages");
+
     const bookReadLabel = document.createElement("span");
     bookReadLabel.classList.add("book__label", "book__label--read");
     const bookRead = document.createElement("span");
     bookRead.classList.add("book__read");
-    const deleteBtn = document.createElement("span");
+
+    const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("book__delete");
 
     // Add text content
     bookTitleLabel.textContent = "Title: ";
-
     bookName.textContent = book.title;
     bookAuthorLabel.textContent = "Author: ";
     bookAuthor.textContent = book.author;
@@ -99,18 +104,18 @@ function displayBooks() {
     });
 
     // Append values to the DOM
-    addData.appendChild(bookTitleLabel);
-    addData.appendChild(bookName);
-    addData.appendChild(bookAuthorLabel);
-    addData.appendChild(bookAuthor);
-    addData.appendChild(bookPagesLabel);
-    addData.appendChild(bookPages);
-    addData.appendChild(bookReadLabel);
-    addData.appendChild(bookRead);
-    addData.appendChild(deleteBtn);
+    bookContainer.appendChild(bookTitleLabel);
+    bookContainer.appendChild(bookName);
+    bookContainer.appendChild(bookAuthorLabel);
+    bookContainer.appendChild(bookAuthor);
+    bookContainer.appendChild(bookPagesLabel);
+    bookContainer.appendChild(bookPages);
+    bookContainer.appendChild(bookReadLabel);
+    bookContainer.appendChild(bookRead);
+    bookContainer.appendChild(deleteBtn);
 
     // Append to document
-    list.appendChild(addData);
+    list.appendChild(bookContainer);
   });
 }
 
