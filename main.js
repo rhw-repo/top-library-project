@@ -49,16 +49,16 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function displayBooks() {
-  // Select the list and store it in a variable
-  const list = document.querySelector(".list");
-  // Clear list using while loop before displaying new input
-  while (list.firstChild) {
-    list.removeChild(list.firstChild);
+  // Select the cards container and store it in a variable
+  const libraryContainer = document.querySelector(".library-container");
+  // Clear libraryConatiner using while loop before displaying new input
+  while (libraryContainer.firstChild) {
+    libraryContainer.removeChild(libraryContainer.firstChild);
   }
 
   // Iterate over myLibrary array, create DOM elements for each book
   myLibrary.forEach((book) => {
-    // Create a container
+    // Create a card as a container for each book's data
     const bookContainer = document.createElement("div");
     bookContainer.classList.add("book");
 
@@ -115,7 +115,7 @@ function displayBooks() {
     bookContainer.appendChild(deleteBtn);
 
     // Append to document
-    list.appendChild(bookContainer);
+    libraryContainer.appendChild(bookContainer);
   });
 }
 

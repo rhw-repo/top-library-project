@@ -25,7 +25,9 @@ body {
 
 main {
   display: grid;
-  grid-template-areas: "header navbar" "header main";
+  grid-template-areas:
+    "header navbar"
+    "header main";
   grid-template-columns: 30% 70%;
 }
 
@@ -233,9 +235,15 @@ input {
   font-weight: 600;
 }
 
-.list {
+/* Styling for the container holding the cards */
+.library-container {
   grid-area: main;
   justify-self: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
   background-color: var(--text-display);
   color: black;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6),
@@ -247,7 +255,47 @@ input {
   padding: 1rem;
 }
 
+/* Styling for individual cards containing each book */
 .book {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  width: fit-content;
+  min-width: 15rem;
+  padding: 0.625rem;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  margin: 1rem auto;
+  background: var(--text-display);
+}
+
+.book__label {
+  font-weight: bold;
+}
+
+.book__delete {
+  grid-column: span 2;
+  justify-self: end;
+  width: fit-content;
+  padding: 1rem 2rem;
+  background: var(--secondary);
+  color: var(--text-display);
+  font-weight: 600;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 600px) {
+  .book {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/*.book {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1rem;
@@ -279,3 +327,4 @@ input {
     grid-template-columns: 1fr;
   }
 }
+*/
