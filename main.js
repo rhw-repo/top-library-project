@@ -31,10 +31,11 @@ function Book(title, author, pages, read) {
   console.log(this);
 }
 
-// Debugging block to check Book function runs
+// Example book to check Book function runs and show book format to user
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not read yet");
 myLibrary.push(theHobbit);
 console.log(myLibrary);
+displayBooks();
 
 // Push a new book to array, is later called with form input passed to it
 function addBookToLibrary(title, author, pages, read) {
@@ -57,7 +58,7 @@ function displayBooks() {
   }
 
   // Iterate over myLibrary array, create DOM elements for each book
-  myLibrary.forEach((book) => {
+  myLibrary.forEach((book, index) => {
     // Create a card as a container for each book's data
     const bookContainer = document.createElement("div");
     bookContainer.classList.add("book");
