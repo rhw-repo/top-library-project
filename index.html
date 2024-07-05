@@ -8,7 +8,6 @@
     <script src="https://kit.fontawesome.com/a25906fcbb.js" 
     crossorigin="anonymous"></script>
     <!--script type="text/javascript" src="dist/purify.min.js"></script-->
-  
   </head>
 
   <body>
@@ -30,41 +29,87 @@
       <dialog class="dialog" id="dialog">
         <!--if action attribute omitted action set to current page-->
         <form method="dialog" class="dialog__form" id="add-book">
-          <button type="button" class="dialog__form--close-btn">X</button>
-          <label for="title" class="dialog__form__label--title">Title:</label>
-          <input type="text" name="title" class="dialog__form__input--title" required aria-required="true" />
-          <label for="author" class="dialog__form__label--author">
-            Written by:</label
-          >
-          <input type="text" name="author" class="dialog__form__input--author" required aria-required="true"/>
-          <label for="pages" id="pages" class="dialog__form__label--pages">No. of pages:</label>
-          <input type="number" min="1" value="1" name="pages" id="pages" class="dialog__form__input--pages">
+          <button 
+          type="button" 
+          class="dialog__form--close-btn">
+          X
+          </button>
+          <label for="title" 
+          class="dialog__form__label--title">
+          Title:
+          </label>
+          <input 
+          type="text" 
+          name="title" 
+          class="dialog__form__input--title" 
+          required 
+          aria-required="true" 
+          />
+          <label for="author" 
+          class="dialog__form__label--author">
+          Written by:
+          </label>
+          <input 
+          type="text" 
+          name="author" 
+          class="dialog__form__input--author" 
+          required 
+          aria-required="true"/>
+          <label for="pages" 
+          id="pages" 
+          class="dialog__form__label--pages">
+          No. of pages:
+          </label>
+          <input 
+          type="number" 
+          min="1" 
+          value="1" 
+          name="pages" 
+          id="pages" 
+          class="dialog__form__input--pages">
           
-          <div class="dialog__form__toggle-label" aria-label="Section to mark if the book has been read">
+          <div 
+          class="dialog__form__toggle-label" 
+          aria-label="Section to mark if the book has been read">
             <b>Mark as read</b>
             <br /><br />
           </div>
           <div class="dialog__form__toggle-switch">
-            <input type="checkbox" id="switch" class="dialog__form__checkbox"/>
-            <label for="switch" class="dialog__form__toggle" aria-label="Toggle switch to mark if the book has been read"> </label>
+            <input 
+            type="checkbox" 
+            id="switch" 
+            class="dialog__form__checkbox"/>
+            <label for="switch" 
+            class="dialog__form__toggle" 
+            aria-label="Toggle switch to mark if the book has been read"> 
+            </label>
           </div>
         
-          <button id="submit-btn" type="submit" class="dialog__form--submit-btn" >
-            Submit
+          <button 
+          id="submit-btn" 
+          type="submit" 
+          class="dialog__form--submit-btn" >
+          Submit
           </button>
         </form>
       </dialog>
 
       <div class="library-container">
       </div>
+
 <footer class="footer">
    <p class="footer__copyright">
     &copy; R H Westnidge Brown, 2024
   </p>
   <p class="footer__credit">
-    Photo by <a href="https://www.pexels.com/photo/geometric-marble-shelf-with-books-and-decorative-vase-4207791/" target="_blank">Karolina Kaboompics</a>
+    Photo by 
+    <a href="https://www.pexels.com/photo/geometric-marble-shelf-with-books-and-decorative-vase-4207791/" 
+    target="_blank">
+    Karolina Kaboompics
+  </a>
   </p>
 </footer>
+
     </main>
   </body>
   <script src="./main.js"></script>
