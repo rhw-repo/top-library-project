@@ -1,5 +1,8 @@
 /* TO DO 
 Responsive and a11y testing
+Add media queries for 804px and under -
+change layout to stack elements vertically
+Make footer sticky https://css-tricks.com/couple-takes-sticky-footer/
 */
 @font-face {
   font-family: "Open Sans", sans-serif;
