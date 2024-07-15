@@ -67,12 +67,13 @@ main {
   top: 16rem;
   display: flex;
   align-self: flex-start;
+  justify-self: flex-start;
   width: 100%;
   max-width: 100%;
   height: auto;
   border-radius: 1rem;
   margin: 0;
-  clip-path: inset(25% 15% 0 15%);
+  /*clip-path: inset(25% 15% 0 15%);*/
 }
 
 .navbar {
@@ -103,6 +104,8 @@ dialog {
   display: flex;
   justify-content: center;
   border-radius: 1rem;
+  border: none;
+  background: #cecfcd;
 }
 
 .dialog__form {
@@ -111,6 +114,7 @@ dialog {
   grid-template-rows: repeat(6, 1fr);
   gap: 1rem;
   padding: 1rem;
+  
 }
 
 .dialog__form--close-btn {
@@ -126,6 +130,7 @@ dialog {
   background: var(--secondary);
   color: var(--text-display);
   font-weight: 600;
+  font-size: 2rem;
 }
 
 label,
@@ -135,6 +140,7 @@ b {
 
 input {
   padding: 1rem;
+  border: none;
 }
 
 .dialog__form__label--title {
@@ -172,6 +178,7 @@ input {
   grid-column: 2 / 3;
   padding: 1rem;
   height: 1rem;
+  border-radius: 1rem;
 }
 
 .dialog__form__toggle-label {
