@@ -2,21 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=ç, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Log</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://kit.fontawesome.com/a25906fcbb.js" 
     crossorigin="anonymous"></script>
+    <!--This resource is failing to load-->
+    <!--script type="text/javascript" src="dist/purify.min.js"></script-->
   </head>
+
   <body>
     <main>
       <header class="header">  
-         <h1 class="header__h1">Book <br>Log</h1>
-         <p class="header__p">Keep track of all your favorite books.</p>
-               <img src="./pexels-karolina-grabowska-4219041.png" 
-               alt="A pile of books ready for reading, on top 
-               of a wooden stool." 
-               class="header__img">      
+         <h1 class="header__h1">Book Log</h1>
+                       <img src="./pexels-karolina-grabowska-4207791.png" 
+               alt="A pile of books ready for reading, 
+               all waiting on an elegant marble shelf" 
+               class="header__img"> 
     </header>
     
     <navbar class="navbar">
@@ -27,34 +29,89 @@
     </navbar>
 
       <dialog class="dialog" id="dialog">
-        <form method="dialog" class="dialog__form">
-          <button type="button" class="dialog__form--close-btn">X</button>
-          <label for="title" class="dialog__form__label--title">Title:</label>
-          <input type="text-area" class="dialog__form__input--title" />
-          <label for="author" class="dialog__form__label--author">
-            Written by:</label
-          >
-          <input type="text" class="dialog__form__input--author" />
-          <div class="dialog__form__toggle-label">
+        <!--If action attribute omitted action set to current page-->
+        <form method="dialog" class="dialog__form" id="add-book">
+          <button 
+          type="button" 
+          class="dialog__form--close-btn">
+          X
+          </button>
+          <label for="title" 
+          class="dialog__form__label--title">
+          Title:
+          </label>
+          <input 
+          type="text" 
+          name="title" 
+          class="dialog__form__input--title" 
+          required 
+          aria-required="true" 
+          />
+          <label for="author" 
+          class="dialog__form__label--author">
+          Written by:
+          </label>
+          <input 
+          type="text" 
+          name="author" 
+          class="dialog__form__input--author" 
+          required 
+          aria-required="true"/>
+          <label for="pages" 
+          id="pages" 
+          class="dialog__form__label--pages">
+          No. of pages:
+          </label>
+          <input 
+          type="number" 
+          min="1" 
+          value="1" 
+          name="pages" 
+          id="pages" 
+          class="dialog__form__input--pages">
+          
+          <div 
+          class="dialog__form__toggle-label" 
+          aria-label="Section to mark if the book has been read">
             <b>Mark as read</b>
             <br /><br />
           </div>
           <div class="dialog__form__toggle-switch">
-            <input type="checkbox" id="switch" class="dialog__form__checkbox"/>
-            <label for="switch" class="dialog__form__toggle"> </label>
+            <input 
+            type="checkbox" 
+            id="switch" 
+            class="dialog__form__checkbox"/>
+            <label for="switch" 
+            class="dialog__form__toggle" 
+            aria-label="Toggle switch to mark if the book has been read"> 
+            </label>
           </div>
-          <button type="submit" class="dialog__form--submit-btn">
-            Submit
+        
+          <button 
+          id="submit-btn" 
+          type="submit" 
+          class="dialog__form--submit-btn" >
+          Submit
           </button>
         </form>
       </dialog>
-      <div class="card">
-        <div class="card__title">Title</div>
-        <div class="card__author">Author</div>
-        <div class="card__pages">No. of pages: </div>
-        <div class="card__read-status">Read yet?</div>
+
+      <div class="library-container">
       </div>
     </main>
+    <footer class="footer">
+   <p class="footer__copyright">
+    &copy; R H Westnidge Brown, 2024
+  </p>
+  <p class="footer__credit">
+    Photo by 
+    <a href=
+    "https://www.pexels.com/photo/geometric-marble-shelf-with-books-and-decorative-vase-4207791/" 
+    target="_blank">
+    Karolina Kaboompics
+  </a>
+  </p>
+</footer>
   </body>
   <script src="./main.js"></script>
 </html>

@@ -1,6 +1,9 @@
 /* TO DO 
-1. Position spans next to Book Log text in new container
-2. Media queries */
+Responsive and a11y testing
+Add media queries for 804px and under -
+change layout to stack elements vertically
+Make footer sticky https://css-tricks.com/couple-takes-sticky-footer/
+*/
 @font-face {
   font-family: "Open Sans", sans-serif;
   src: url(./fonts/open-sans-latin-400-normal.woff),
@@ -12,30 +15,48 @@ html {
   box-sizing: border-box;
 }
 
+html, body {
+  min-height: 100%;
+}
+
+:root {
+  --primary: #357960;
+  --secondary: #f5625d;
+  --text-display: #fff;
+}
+
 body {
-  height: 100dvh;
-  height: 100vh;
-  background: #14919b;
+  background: var(--primary);
 }
 
 main {
   display: grid;
-  grid-template-areas: "header navbar" "header main";
+  grid-template-areas:
+    "header navbar"
+    "header main"
+    "footer footer";
+  grid-template-columns: 30% 70%;
+  /* creates sticky footer */
+  min-height: 95dvh;
+  min-height: 95vh;
 }
 
 .header {
   grid-area: header;
-  max-width: 25rem;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-  color: #ffffff;
+  color: var(--text-display);
   border-radius: 1rem;
   padding: 1rem; 
 }
 
 .header__h1 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   font-size: 6rem;
   letter-spacing: 4px;
   margin-left: 1rem;
@@ -50,11 +71,15 @@ main {
 
 /* Responsive sizing */
 .header__img {
+  top: 16rem;
+  display: flex;
+  align-self: flex-start;
+  justify-self: flex-start;
   width: 100%;
   max-width: 100%;
   height: auto;
   border-radius: 1rem;
-  margin: 1rem;
+  margin: 0;
 }
 
 .navbar {
@@ -67,14 +92,14 @@ main {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  border: 1px solid black;
+  border: 1px solid var(--secondary);
   border-radius: 1rem;
-  background: #f1f4e1;
-  color: #364042;
+  background: var(--secondary);
+  color: var(--text-display);
   font-size: 2rem;
+  font-weight: 600;
   padding: 1rem;
   margin: 1rem;
-
 }
 
 dialog {
@@ -85,14 +110,17 @@ dialog {
   display: flex;
   justify-content: center;
   border-radius: 1rem;
+  border: none;
+  background: #cecfcd;
 }
 
 .dialog__form {
   display: grid;
   grid-template-columns: 40% 60%;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   gap: 1rem;
   padding: 1rem;
+  
 }
 
 .dialog__form--close-btn {
@@ -101,14 +129,24 @@ dialog {
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 50%;
+  border: none;
   justify-self: end;
   margin-bottom: 1.5rem;
   margin-top: 0;
+  background: var(--secondary);
+  color: var(--text-display);
+  font-weight: 600;
+  font-size: 2rem;
 }
 
 label,
 b {
   font-weight: 600;
+}
+
+input {
+  padding: 1rem;
+  border: none;
 }
 
 .dialog__form__label--title {
@@ -136,13 +174,26 @@ b {
   grid-column: 2 / 3;
 }
 
-.dialog__form__toggle-label {
+.dialog__form__label--pages {
   grid-row: 4 / 5;
   grid-column: 1 / 2;
 }
 
-.dialog__form__toggle-switch {
+.dialog__form__input--pages {
   grid-row: 4 / 5;
+  grid-column: 2 / 3;
+  padding: 1rem;
+  height: 1rem;
+  border-radius: 1rem;
+}
+
+.dialog__form__toggle-label {
+  grid-row: 5 / 6;
+  grid-column: 1 / 2;
+}
+
+.dialog__form__toggle-switch {
+  grid-row: 5 / 6;
   grid-column: 2 / 3;
   justify-self: start;
 }
@@ -153,7 +204,7 @@ b {
   display: inline-block;
   width: 3.125rem;
   height: 1.625rem;
-  background-color: red;
+  background-color: var(--secondary);
   border-radius: 0.9375rem;
   border: 0.0625rem solid gray;
 }
@@ -165,7 +216,7 @@ b {
   width: 1.5625rem;
   height: 1.5625rem;
   border-radius: 50%;
-  background-color: gray;
+  background-color: var(--text-display);
   top: 0.03125rem;
   left: 0.03125rem;
   transition: all 0.5s;
@@ -178,18 +229,107 @@ b {
 
 /* Initial colors before toggle switch slid over */
 .dialog__form__checkbox:checked + .dialog__form__toggle {
-  background-color: green;
+  background-color: var(--primary);
 }
 
 /* Hide default checkbox display */
 .dialog__form__checkbox {
-  display: none;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  z-index: -1;
 }
 
 .dialog__form--submit-btn {
-  grid-row: 5 / 6;
+  grid-row: 6 / 7;
   grid-column: 1 / -1;
   justify-self: center;
   padding: 0 3rem;
   border-radius: 1rem;
+  border: none;
+  background: var(--secondary);
+  color: var(--text-display);
+  font-weight: 600;
+}
+
+/* Styling for the container holding the cards */
+.library-container {
+  grid-area: main;
+  justify-self: center;
+  align-self: start;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: #dacbba;
+  color: black;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6),
+    0 6px 12px rgba(152, 121, 121, 0.3);
+  transition: 0.3s;
+  width: 80%;
+  height: fit-content;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+/* Styling for individual cards containing each book */
+.book {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  width: fit-content;
+  min-width: 15rem;
+  padding: 0.625rem;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  margin: 1rem auto;
+  background: var(--text-display);
+}
+
+.book__label {
+  font-weight: bold;
+}
+
+/* Delete button */
+.book__delete {
+  grid-column: span 2;
+  justify-self: end;
+  width: fit-content;
+  padding: 1rem 2rem;
+  background: var(--secondary);
+  color: var(--text-display);
+  font-weight: 600;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.footer {
+  grid-area: footer;
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer__credit,
+.footer__copyright {
+  font-size: 0.75rem;
+  color: var(--text-display);
+  text-align: center;
+}
+
+.footer__credit a {
+  color: var(--text-display);
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .book {
+    grid-template-columns: 1fr;
+  }
 }
