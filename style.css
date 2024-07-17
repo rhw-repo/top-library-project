@@ -15,6 +15,10 @@ html {
   box-sizing: border-box;
 }
 
+html, body {
+  min-height: 100%;
+}
+
 :root {
   --primary: #357960;
   --secondary: #f5625d;
@@ -22,8 +26,6 @@ html {
 }
 
 body {
-  height: 75dvh;
-  height: 75vh;
   background: var(--primary);
 }
 
@@ -34,12 +36,14 @@ main {
     "header main"
     "footer footer";
   grid-template-columns: 30% 70%;
+  /* creates sticky footer */
+  min-height: 95dvh;
+  min-height: 95vh;
 }
 
 .header {
   grid-area: header;
   position: relative;
-  /*max-width: 25rem;*/
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -76,7 +80,6 @@ main {
   height: auto;
   border-radius: 1rem;
   margin: 0;
-  /*clip-path: inset(25% 15% 0 15%);*/
 }
 
 .navbar {
@@ -306,6 +309,7 @@ input {
 
 .footer {
   grid-area: footer;
+  position: sticky;
   display: flex;
   justify-content: center;
   align-items: center;

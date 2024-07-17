@@ -6,8 +6,8 @@ https://www.theodinproject.com/lessons/node-path-javascript-library#project-solu
 */
 
 /*TODO 
-1. Comment the deleteBtn execution code
-2. Debug needed DOMpurify doesn't even load resource
+
+1. Debug needed DOMpurify doesn't even load resource
 // console.log('DOMPurify:', DOMPurify);
 // Sanitize inputs using DOMPurify
  const sanitizedTitle = DOMPurify.sanitize(formData.get('title'));
@@ -157,6 +157,8 @@ button.addEventListener("click", () => {
 // Select the close button within dialog
 document
   .querySelector(".dialog__form--close-btn")
+  // Add event listener
   .addEventListener("click", () => {
+    // call close() method
     dialog.close();
   });
