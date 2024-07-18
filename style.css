@@ -359,3 +359,65 @@ input {
     justify-self: center;
   }
 }
+
+@media (min-height: 350px) and (max-height: 550px) {
+  .dialog[open] .dialog__form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .dialog[open] .dialog__form--close-btn {
+    grid-column: 4 / 5;
+    justify-self: end; 
+    grid-row: 1 / 2;
+  }
+
+  .dialog[open] .dialog__form__label--title {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .dialog[open] .dialog__form__input--title {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .dialog[open] .dialog__form__label--author {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+
+  .dialog[open] .dialog__form__input--author {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+  }
+
+  .dialog[open] .dialog__form__label--pages {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+
+  .dialog[open] .dialog__form__input--pages {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+
+  .dialog[open] .dialog__form__toggle-label {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+  }
+
+  .dialog[open] .dialog__form__toggle-switch {
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+  }
+
+  .dialog[open] .dialog__form--submit-btn {
+    grid-column: span 4;
+    justify-self: center;
+    grid-row: 4 / 5;
+  }
+}
