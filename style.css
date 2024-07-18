@@ -15,7 +15,8 @@ html {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   min-height: 100%;
 }
 
@@ -120,7 +121,6 @@ dialog {
   grid-template-rows: repeat(6, 1fr);
   gap: 1rem;
   padding: 1rem;
-  
 }
 
 .dialog__form--close-btn {
@@ -328,8 +328,34 @@ input {
   text-decoration: underline;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) or (min-height: 1180px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .book {
     grid-template-columns: 1fr;
+  }
+
+  .header__h1 {
+    text-align: center;
+    margin: 0 auto 1rem;
+  }
+
+  .header__img {
+    width: 50%;
+    height: 50%;
+    margin: 0 auto;
+  }
+
+  .library-container {
+    align-self: center;
+  }
+
+  .book__delete {
+    justify-self: center;
   }
 }
