@@ -113,6 +113,7 @@ dialog {
   border-radius: 1rem;
   border: none;
   background: #cecfcd;
+  margin: 1rem;
 }
 
 .dialog__form {
@@ -419,5 +420,6 @@ input {
     grid-column: span 4;
     justify-self: center;
     grid-row: 4 / 5;
+    padding: 1rem 3rem;
   }
 }
