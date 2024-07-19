@@ -113,7 +113,6 @@ dialog {
   border-radius: 1rem;
   border: none;
   background: #cecfcd;
-  margin: 1rem;
 }
 
 .dialog__form {
@@ -337,6 +336,11 @@ input {
     align-items: center;
   }
 
+    /* Margin effect */
+  .dialog[open] {
+    transform: scale(0.9);
+  }
+
   .book {
     grid-template-columns: 1fr;
   }
@@ -368,6 +372,7 @@ input {
     grid-template-rows: auto;
     gap: 10px;
     align-items: center;
+    transform: scale(0.9);
   }
 
   .dialog[open] .dialog__form--close-btn {
