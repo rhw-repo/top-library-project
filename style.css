@@ -127,7 +127,7 @@ dialog {
   justify-content: center;
   border-radius: 1rem;
   border: none;
-  background:  #cdc5ba;
+  background: #cdc5ba;
 }
 
 .dialog__form {
@@ -324,13 +324,12 @@ input {
 
 .footer {
   grid-area: footer;
-  justify-self: center;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   width: 100%;
+  margin-left: 2rem;
 }
 
 .footer__credit,
@@ -345,3 +344,62 @@ input {
   text-decoration: underline;
 }
 
+/* Stack elements vertically */
+@media (max-width: 840px) {
+  main {
+    display: grid;
+    grid-template-areas:
+      "header"
+      "navbar"
+      "main"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    position: relative;
+    justify-self: center;
+    width: 100%;
+    max-width: 90%;
+    height: auto;
+    padding: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    border: 2px solid white;
+  }
+
+  .header__img {
+    height: auto;
+    object-fit: contain;
+  }
+
+  .navbar,
+  .library-container,
+  .footer {
+    width: 100%;
+    margin: 0;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .library-container {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin-left: 0;
+  }
+}
