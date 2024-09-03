@@ -35,7 +35,7 @@ body {
     hsl(183deg 42% 20%) 100%
   );
   --secondary: #f5625d;
-  --text-display: #fff;
+  --text-display: #ffff;
   --text-glow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
@@ -50,12 +50,15 @@ main {
     "header main"
     "footer footer";
   grid-template-columns: 30% 70%;
-  min-height: 95dvh;
+  min-height: 100dvh;
 }
 
 .header {
   grid-area: header;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -63,6 +66,7 @@ main {
   color: var(--text-display);
   border-radius: 1rem;
   padding: 1rem;
+  z-index: 10;
 }
 
 .header__h1 {
@@ -85,7 +89,6 @@ main {
 
 /* Responsive sizing */
 .header__img {
-  top: 16rem;
   display: flex;
   align-self: flex-start;
   justify-self: flex-start;
@@ -110,8 +113,6 @@ main {
   border-radius: 1rem;
   background: var(--secondary);
   color: var(--text-display);
-  text-shadow: var(--text-glow);
-  transition: text-shadow 0.3s;
   font-size: 2rem;
   font-weight: 600;
   padding: 1rem;
@@ -279,7 +280,7 @@ input {
   flex-wrap: wrap;
   gap: 1rem;
   color: black;
-  width: 80%;
+  width: 70%;
   height: fit-content;
   border-radius: 0.5rem;
   padding: 1rem;
@@ -323,7 +324,8 @@ input {
 
 .footer {
   grid-area: footer;
-  position: sticky;
+  justify-self: center;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
