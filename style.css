@@ -39,7 +39,7 @@ main {
   grid-template-columns: 30% 70%;
   /* creates sticky footer */
   min-height: 95dvh;
-  min-height: 95vh;
+  /*min-height: 95vh;*/
 }
 
 .header {
@@ -314,6 +314,7 @@ input {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  width: 100%;
 }
 
 .footer__credit,
