@@ -15,7 +15,8 @@ html {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   min-height: 100%;
 }
 
@@ -38,7 +39,7 @@ main {
   grid-template-columns: 30% 70%;
   /* creates sticky footer */
   min-height: 95dvh;
-  min-height: 95vh;
+  /*min-height: 95vh;*/
 }
 
 .header {
@@ -120,7 +121,6 @@ dialog {
   grid-template-rows: repeat(6, 1fr);
   gap: 1rem;
   padding: 1rem;
-  
 }
 
 .dialog__form--close-btn {
@@ -314,6 +314,7 @@ input {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  width: 100%;
 }
 
 .footer__credit,
@@ -328,8 +329,107 @@ input {
   text-decoration: underline;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) or (min-height: 1180px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+    /* Margin effect */
+  .dialog[open] {
+    transform: scale(0.9);
+  }
+
   .book {
     grid-template-columns: 1fr;
+  }
+
+  .header__h1 {
+    text-align: center;
+    margin: 0 auto 1rem;
+  }
+
+  .header__img {
+    width: 50%;
+    height: 50%;
+    margin: 0 auto;
+  }
+
+  .library-container {
+    align-self: center;
+  }
+
+  .book__delete {
+    justify-self: center;
+  }
+}
+
+@media (min-height: 350px) and (max-height: 550px) {
+  .header__h1 {
+    font-size: 5rem;
+  }
+
+  .dialog[open] .dialog__form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    align-items: center;
+    transform: scale(0.9);
+  }
+
+  .dialog[open] .dialog__form--close-btn {
+    grid-column: 4 / 5;
+    justify-self: end; 
+    grid-row: 1 / 2;
+  }
+
+  .dialog[open] .dialog__form__label--title {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .dialog[open] .dialog__form__input--title {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .dialog[open] .dialog__form__label--author {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+
+  .dialog[open] .dialog__form__input--author {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+  }
+
+  .dialog[open] .dialog__form__label--pages {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+
+  .dialog[open] .dialog__form__input--pages {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+
+  .dialog[open] .dialog__form__toggle-label {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+  }
+
+  .dialog[open] .dialog__form__toggle-switch {
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+  }
+
+  .dialog[open] .dialog__form--submit-btn {
+    grid-column: span 4;
+    justify-self: center;
+    grid-row: 4 / 5;
+    padding: 1rem 3rem;
   }
 }
