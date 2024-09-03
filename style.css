@@ -21,13 +21,26 @@ body {
 }
 
 :root {
-  --primary: #357960;
+  --primary: linear-gradient(
+    270deg,
+    hsl(158deg 39% 34%) 0%,
+    hsl(162deg 42% 32%) 24%,
+    hsl(165deg 44% 30%) 40%,
+    hsl(168deg 46% 28%) 53%,
+    hsl(171deg 48% 26%) 63%,
+    hsl(174deg 48% 24%) 71%,
+    hsl(176deg 48% 23%) 77%,
+    hsl(178deg 46% 22%) 84%,
+    hsl(181deg 44% 20%) 91%,
+    hsl(183deg 42% 20%) 100%
+  );
   --secondary: #f5625d;
-  --text-display: #fff;
+  --text-display: #ffff;
+  --text-glow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 body {
-  background: var(--primary);
+  background-image: var(--primary);
 }
 
 main {
@@ -37,32 +50,36 @@ main {
     "header main"
     "footer footer";
   grid-template-columns: 30% 70%;
-  /* creates sticky footer */
-  min-height: 95dvh;
-  /*min-height: 95vh;*/
+  min-height: 100dvh;
 }
 
 .header {
   grid-area: header;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
   color: var(--text-display);
   border-radius: 1rem;
-  padding: 1rem; 
+  padding: 1rem;
+  z-index: 10;
 }
 
 .header__h1 {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
   font-size: 6rem;
   letter-spacing: 4px;
   margin-left: 1rem;
   margin-bottom: 2rem;
   margin-top: 0.5rem;
+  text-shadow: var(--text-glow);
+  transition: text-shadow 0.3s;
 }
 
 .header__p {
@@ -72,7 +89,6 @@ main {
 
 /* Responsive sizing */
 .header__img {
-  top: 16rem;
   display: flex;
   align-self: flex-start;
   justify-self: flex-start;
@@ -253,7 +269,7 @@ input {
   font-weight: 600;
 }
 
-/* Styling for the container holding the cards */
+/* Container holding the cards */
 .library-container {
   grid-area: main;
   justify-self: center;
@@ -263,30 +279,29 @@ input {
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  background-color: #dacbba;
   color: black;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6),
-    0 6px 12px rgba(152, 121, 121, 0.3);
-  transition: 0.3s;
-  width: 80%;
+  width: 70%;
   height: fit-content;
   border-radius: 0.5rem;
   padding: 1rem;
   margin: 1rem;
 }
 
-/* Styling for individual cards containing each book */
+/* Individual cards containing each book */
 .book {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1rem;
   width: fit-content;
   min-width: 15rem;
-  padding: 0.625rem;
+  padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 1rem;
   margin: 1rem auto;
-  background: var(--text-display);
+  background: #cdc5ba;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6),
+    0 6px 12px rgba(152, 121, 121, 0.3);
+  transition: 0.3s;
 }
 
 .book__label {
@@ -301,7 +316,7 @@ input {
   padding: 1rem 2rem;
   background: var(--secondary);
   color: var(--text-display);
-  font-weight: 600;
+  font-weight: 800;
   border: none;
   border-radius: 1rem;
   cursor: pointer;
@@ -309,7 +324,8 @@ input {
 
 .footer {
   grid-area: footer;
-  position: sticky;
+  justify-self: center;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -337,7 +353,7 @@ input {
     align-items: center;
   }
 
-    /* Margin effect */
+  /* Margin effect */
   .dialog[open] {
     transform: scale(0.9);
   }
@@ -382,7 +398,7 @@ input {
 
   .dialog[open] .dialog__form--close-btn {
     grid-column: 4 / 5;
-    justify-self: end; 
+    justify-self: end;
     grid-row: 1 / 2;
   }
 
