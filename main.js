@@ -88,6 +88,9 @@ function displayBooks() {
 
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("book__delete");
+    const trashIcon = document.createElement("i");
+    trashIcon.classList.add("fa-solid", "fa-trash", "fa-2x");
+    deleteBtn.appendChild(trashIcon);
 
     // Add text content
     bookTitleLabel.textContent = "Title: ";
@@ -99,7 +102,6 @@ function displayBooks() {
     bookReadLabel.textContent = "Has been read: ";
     // Display 'Yes' if read is true, otherwise 'No'
     bookRead.textContent = book.read ? "Yes" : "No";
-    deleteBtn.textContent = "Delete";
 
     deleteBtn.addEventListener("click", () => {
       myLibrary.splice(index, 1);
