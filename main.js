@@ -5,21 +5,20 @@ take user’s input and store the new book objects into an array.
 https://www.theodinproject.com/lessons/node-path-javascript-library#project-solution
 */
 
-/*TODO 
+/*TODO */
 
-1. Debug needed DOMpurify doesn't even load resource
-// console.log('DOMPurify:', DOMPurify);
-// Sanitize inputs using DOMPurify
- const sanitizedTitle = DOMPurify.sanitize(formData.get('title'));
- const sanitizedAuthor = DOMPurify.sanitize(formData.get('author'));
- const sanitizedPages = DOMPurify.sanitize(formData.get('pages'));
- const sanitizedRead = DOMPurify.sanitize(formData.get('switch'));
+/* Sanitize inputs immediately after form submission using DOMPurify;*/
 
- // Log sanitized inputs to console for verification
- console.log('Sanitized Title:', sanitizedTitle);
- console.log('Sanitized Author:', sanitizedAuthor);
- console.log('Sanitized Pages:', sanitizedPages);
- console.log('Sanitized Read:', sanitizedRead);*/
+// Log sanitized inputs to console for verification
+
+// THEN pass the sanitised inputs to the addBookToLibrary function
+
+// Test DOMPurify functionality 
+// Simple test to confirm DOMPurify is working
+const testInput = '<script>alert("test")</script>';
+const cleanOutput = DOMPurify.sanitize(testInput);
+console.log(cleanOutput); // Should log an empty string or a sanitized result without script tags
+
 
 // Create an Array
 const myLibrary = [];
@@ -32,12 +31,6 @@ function Book(title, author, pages, read) {
   this.read = read;
   console.log(this);
 }
-
-// Example book to check Book function runs and show book format to user
-const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not read yet");
-myLibrary.push(theHobbit);
-console.log(myLibrary);
-displayBooks();
 
 // Push a new book to array, is later called with form input data passed to it
 function addBookToLibrary(title, author, pages, read) {
@@ -125,7 +118,8 @@ function displayBooks() {
 }
 
 // Select the form, add Event Listener to form's submit event
-const addForm = document.forms["add-book"];
+const addForm = document.getElementById("add-book");
+console.log("Form selected:", addForm); 
 addForm.addEventListener("submit", function (e) {
   // Prevent default submission as functions should run instead
   e.preventDefault();
@@ -135,11 +129,25 @@ addForm.addEventListener("submit", function (e) {
   const pages = this.querySelector('input[name="pages"]').value;
   const read = this.querySelector('input[id="switch"]').checked;
 
-  // Log the extracted form data
-  console.log("Form data:", { title, author, pages, read });
+ 
+  // Log the raw inputs to console for comparison
+  console.log("Raw Form data:", { title, author, pages, read });
 
-  // Call addBookToLibrary passing in form data
-  addBookToLibrary(title, author, pages, read);
+   // Sanitize inputs using DOMPurify
+   const sanitizedTitle = DOMPurify.sanitize(title);
+   const sanitizedAuthor = DOMPurify.sanitize(author);
+   const sanitizedPages = DOMPurify.sanitize(pages);
+ 
+   // Log sanitized inputs to console for verification
+   console.log("Sanitized Form data:", {
+     title: sanitizedTitle,
+     author: sanitizedAuthor,
+     pages: sanitizedPages,
+     read,
+   });
+
+// Call addBookToLibrary passing in sanitized form data
+addBookToLibrary(sanitizedTitle, sanitizedAuthor, sanitizedPages, read);
 
   // Clear form fields after submission
   this.reset();
@@ -164,3 +172,9 @@ document
     // call close() method
     dialog.close();
   });
+
+// Example book to check Book function runs and show book format to user
+const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not read yet");
+myLibrary.push(theHobbit);
+console.log(myLibrary);
+displayBooks();
