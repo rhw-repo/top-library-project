@@ -13,11 +13,26 @@ https://www.theodinproject.com/lessons/node-path-javascript-library#project-solu
 
 // THEN pass the sanitised inputs to the addBookToLibrary function
 
-// Test DOMPurify functionality 
-// Simple test to confirm DOMPurify is working
-const testInput = '<script>alert("test")</script>';
+
+// Test if main.js and if DOMPurify are loaded correctly
+// Add this at the very beginning of main.js
+console.log('main.js is loaded and running');
+
+
+try {
+  // Test if DOMPurify is loaded correctly
+  if (typeof DOMPurify === 'undefined') {
+      console.error('DOMPurify is not loaded or not defined.');
+  } else {
+      console.log('DOMPurify is loaded correctly.');
+  }
+
+ // Test code to confirm DOMPurify is working
+const testInput = '<img src="x" onerror="alert(\'test\')">This is a test</img>';
+console.log('Original Input:', testInput); // Log the raw, potentially unsafe input
+
 const cleanOutput = DOMPurify.sanitize(testInput);
-console.log(cleanOutput); // Should log an empty string or a sanitized result without script tags
+console.log('Sanitized Output:', cleanOutput); // This will show the sanitized version, without harmful attributes
 
 
 // Create an Array
@@ -31,6 +46,12 @@ function Book(title, author, pages, read) {
   this.read = read;
   console.log(this);
 }
+
+// Example book to check Book function runs and show book format to user
+const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not read yet");
+myLibrary.push(theHobbit);
+console.log(myLibrary);
+displayBooks();
 
 // Push a new book to array, is later called with form input data passed to it
 function addBookToLibrary(title, author, pages, read) {
@@ -173,8 +194,6 @@ document
     dialog.close();
   });
 
-// Example book to check Book function runs and show book format to user
-const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not read yet");
-myLibrary.push(theHobbit);
-console.log(myLibrary);
-displayBooks();
+} catch (error) {
+  console.error('An error occurred:', error);
+}
