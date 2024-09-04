@@ -5,21 +5,34 @@ take user’s input and store the new book objects into an array.
 https://www.theodinproject.com/lessons/node-path-javascript-library#project-solution
 */
 
-/*TODO 
 
-1. Debug needed DOMpurify doesn't even load resource
-// console.log('DOMPurify:', DOMPurify);
-// Sanitize inputs using DOMPurify
- const sanitizedTitle = DOMPurify.sanitize(formData.get('title'));
- const sanitizedAuthor = DOMPurify.sanitize(formData.get('author'));
- const sanitizedPages = DOMPurify.sanitize(formData.get('pages'));
- const sanitizedRead = DOMPurify.sanitize(formData.get('switch'));
 
- // Log sanitized inputs to console for verification
- console.log('Sanitized Title:', sanitizedTitle);
- console.log('Sanitized Author:', sanitizedAuthor);
- console.log('Sanitized Pages:', sanitizedPages);
- console.log('Sanitized Read:', sanitizedRead);*/
+
+// Log sanitized inputs to console for verification
+
+// THEN pass the sanitised inputs to the addBookToLibrary function
+
+
+// Test if main.js and if DOMPurify are loaded correctly
+// Add this at the very beginning of main.js
+//console.log('main.js is loaded and running');
+
+
+/*try {
+  // Test if DOMPurify is loaded correctly
+  if (typeof DOMPurify === 'undefined') {
+      console.error('DOMPurify is not loaded or not defined.');
+  } else {
+      console.log('DOMPurify is loaded correctly.');
+  }
+
+ // Test code to confirm DOMPurify is working
+const testInput = '<img src="x" onerror="alert(\'test\')">This is a test</img>';
+console.log('Original Input:', testInput); // Log the raw, potentially unsafe input
+
+const cleanOutput = DOMPurify.sanitize(testInput);
+console.log('Sanitized Output:', cleanOutput); // This will show the sanitized version, without harmful attributes*/
+
 
 // Create an Array
 const myLibrary = [];
@@ -125,7 +138,8 @@ function displayBooks() {
 }
 
 // Select the form, add Event Listener to form's submit event
-const addForm = document.forms["add-book"];
+const addForm = document.getElementById("add-book");
+console.log("Form selected:", addForm); 
 addForm.addEventListener("submit", function (e) {
   // Prevent default submission as functions should run instead
   e.preventDefault();
@@ -135,11 +149,25 @@ addForm.addEventListener("submit", function (e) {
   const pages = this.querySelector('input[name="pages"]').value;
   const read = this.querySelector('input[id="switch"]').checked;
 
-  // Log the extracted form data
-  console.log("Form data:", { title, author, pages, read });
+ 
+  /* Log the raw inputs to console for comparison
+  console.log("Raw Form data:", { title, author, pages, read });*/
 
-  // Call addBookToLibrary passing in form data
-  addBookToLibrary(title, author, pages, read);
+   // Sanitize inputs using DOMPurify
+   const sanitizedTitle = DOMPurify.sanitize(title);
+   const sanitizedAuthor = DOMPurify.sanitize(author);
+   const sanitizedPages = DOMPurify.sanitize(pages);
+ 
+   /* Log sanitized inputs to console for verification
+   console.log("Sanitized Form data:", {
+     title: sanitizedTitle,
+     author: sanitizedAuthor,
+     pages: sanitizedPages,
+     read,
+   });*/
+
+// Call addBookToLibrary passing in sanitized form data
+addBookToLibrary(sanitizedTitle, sanitizedAuthor, sanitizedPages, read);
 
   // Clear form fields after submission
   this.reset();
@@ -164,3 +192,7 @@ document
     // call close() method
     dialog.close();
   });
+
+/*} catch (error) {
+  console.error('An error occurred:', error);
+}*/
