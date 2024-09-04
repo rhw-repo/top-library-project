@@ -150,21 +150,21 @@ addForm.addEventListener("submit", function (e) {
   const read = this.querySelector('input[id="switch"]').checked;
 
  
-  // Log the raw inputs to console for comparison
-  console.log("Raw Form data:", { title, author, pages, read });
+  /* Log the raw inputs to console for comparison
+  console.log("Raw Form data:", { title, author, pages, read });*/
 
    // Sanitize inputs using DOMPurify
    const sanitizedTitle = DOMPurify.sanitize(title);
    const sanitizedAuthor = DOMPurify.sanitize(author);
    const sanitizedPages = DOMPurify.sanitize(pages);
  
-   // Log sanitized inputs to console for verification
+   /* Log sanitized inputs to console for verification
    console.log("Sanitized Form data:", {
      title: sanitizedTitle,
      author: sanitizedAuthor,
      pages: sanitizedPages,
      read,
-   });
+   });*/
 
 // Call addBookToLibrary passing in sanitized form data
 addBookToLibrary(sanitizedTitle, sanitizedAuthor, sanitizedPages, read);
