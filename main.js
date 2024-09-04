@@ -1,22 +1,3 @@
-// Test if main.js and if DOMPurify are loaded correctly
-// Add this at the very beginning of main.js
-//console.log('main.js is loaded and running');
-
-/*try {
-  // Test if DOMPurify is loaded correctly
-  if (typeof DOMPurify === 'undefined') {
-      console.error('DOMPurify is not loaded or not defined.');
-  } else {
-      console.log('DOMPurify is loaded correctly.');
-  }
-
- // Test code to confirm DOMPurify is working
-const testInput = '<img src="x" onerror="alert(\'test\')">This is a test</img>';
-console.log('Original Input:', testInput); // Log the raw, potentially unsafe input
-
-const cleanOutput = DOMPurify.sanitize(testInput);
-console.log('Sanitized Output:', cleanOutput); // This will show the sanitized version, without harmful attributes*/
-
 /**
  * Array of Book objects
  * @type {Book[]}
@@ -36,7 +17,6 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  console.log(this);
 }
 
 /**
@@ -45,7 +25,6 @@ function Book(title, author, pages, read) {
  */
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not read yet");
 myLibrary.push(theHobbit);
-console.log(myLibrary);
 // Update UI to display the example book
 displayBooks();
 
@@ -62,10 +41,6 @@ function addBookToLibrary(title, author, pages, read) {
   const newBook = new Book(title, author, pages, read);
   // Push this new Book object to the array
   myLibrary.push(newBook);
-  /* Log the updated library and new book for debugging
-  console.log("Updated library:", myLibrary);
-  console.log(newBook);
-  */
   /* Update UI by calling displayBooks(), 
   appends the new Book object to the DOM */
   displayBooks();
@@ -157,7 +132,6 @@ function displayBooks() {
  * @listens submit - Listens for form submit event to trigger book addition.
  */
 const addForm = document.getElementById("add-book");
-// console.log("Form selected:", addForm);
 // Attach event listener to handle form submission
 addForm.addEventListener("submit", function (e) {
   // Prevent default submission (avoid page reload)
@@ -168,21 +142,10 @@ addForm.addEventListener("submit", function (e) {
   const pages = this.querySelector('input[name="pages"]').value;
   const read = this.querySelector('input[id="switch"]').checked;
 
-  /* Log the raw inputs to console for comparison
-  console.log("Raw Form data:", { title, author, pages, read });*/
-
   // Sanitize inputs
   const sanitizedTitle = DOMPurify.sanitize(title);
   const sanitizedAuthor = DOMPurify.sanitize(author);
   const sanitizedPages = DOMPurify.sanitize(pages);
-
-  /* Log sanitized inputs to console for verification
-   console.log("Sanitized Form data:", {
-     title: sanitizedTitle,
-     author: sanitizedAuthor,
-     pages: sanitizedPages,
-     read,
-   });*/
 
   // Call addBookToLibrary passing in sanitized form data
   addBookToLibrary(sanitizedTitle, sanitizedAuthor, sanitizedPages, read);
