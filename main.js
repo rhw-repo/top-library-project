@@ -5,9 +5,8 @@ take user’s input and store the new book objects into an array.
 https://www.theodinproject.com/lessons/node-path-javascript-library#project-solution
 */
 
-/*TODO */
 
-/* Sanitize inputs immediately after form submission using DOMPurify;*/
+
 
 // Log sanitized inputs to console for verification
 
@@ -16,10 +15,10 @@ https://www.theodinproject.com/lessons/node-path-javascript-library#project-solu
 
 // Test if main.js and if DOMPurify are loaded correctly
 // Add this at the very beginning of main.js
-console.log('main.js is loaded and running');
+//console.log('main.js is loaded and running');
 
 
-try {
+/*try {
   // Test if DOMPurify is loaded correctly
   if (typeof DOMPurify === 'undefined') {
       console.error('DOMPurify is not loaded or not defined.');
@@ -32,7 +31,7 @@ const testInput = '<img src="x" onerror="alert(\'test\')">This is a test</img>';
 console.log('Original Input:', testInput); // Log the raw, potentially unsafe input
 
 const cleanOutput = DOMPurify.sanitize(testInput);
-console.log('Sanitized Output:', cleanOutput); // This will show the sanitized version, without harmful attributes
+console.log('Sanitized Output:', cleanOutput); // This will show the sanitized version, without harmful attributes*/
 
 
 // Create an Array
@@ -194,6 +193,6 @@ document
     dialog.close();
   });
 
-} catch (error) {
+/*} catch (error) {
   console.error('An error occurred:', error);
-}
+}*/
