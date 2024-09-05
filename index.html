@@ -17,7 +17,8 @@
         <img src="./pexels-karolina-grabowska-4207791.png" 
                alt="A pile of books ready for reading, 
                all waiting on an elegant marble shelf" 
-               class="header__img"> 
+               class="header__img"
+               tabindex="0"> 
     </header>
 
     <nav class="nav">
@@ -27,7 +28,9 @@
       </button>
     </nav>
 
-      <dialog class="dialog" id="dialog">
+      <dialog 
+      class="dialog" id="dialog"
+      aria-modal="true">
         <!--Form action attribute omitted - there is no server to send data to-->
         <form method="dialog" class="dialog__form" id="add-book">
           <button 
@@ -98,6 +101,7 @@
 
       <div class="container">
       </div>
+      
     <footer class="footer">
    <p class="footer__copyright">
     &copy; R H Westnidge Brown, 2024
