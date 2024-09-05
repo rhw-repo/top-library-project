@@ -78,7 +78,7 @@ function addBookToLibrary(title, author, pages, read) {
  */
 function displayBooks() {
   // Select the cards container. Store in a variable
-  const libraryContainer = document.querySelector(".library-container");
+  const libraryContainer = document.querySelector(".container");
   // Clear libraryContainer.
   while (libraryContainer.firstChild) {
     libraryContainer.removeChild(libraryContainer.firstChild);

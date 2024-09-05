@@ -269,7 +269,7 @@ input {
 }
 
 /* Container displays the book cards */
-.library-container {
+.container {
   grid-area: main;
   justify-self: center;
   align-self: start;
@@ -377,7 +377,7 @@ input {
   }
 
   .nav,
-  .library-container,
+  .container,
   .footer {
     width: 100%;
     margin: 0;
@@ -390,7 +390,7 @@ input {
     width: 100%;
   }
 
-  .library-container {
+  .container {
     width: 100%;
     margin: 1rem 0;
   }
