@@ -64,7 +64,7 @@ function displayBooks() {
     // Create a card as a container for each book's data
     const bookContainer = document.createElement("div");
     bookContainer.classList.add("card");
-
+   
     // Create each element required within container, add classes
     const bookTitleLabel = document.createElement("span");
     bookTitleLabel.classList.add("card__label", "card__label--title");
@@ -175,7 +175,7 @@ button.addEventListener("click", () => {
  * @constant {HTMLButtonElement} button - Closes dialog
  */
 document
-  .querySelector(".dialog__form--close-btn")
+  .querySelector(".dialog__close-btn")
   // Add event listener
   .addEventListener("click", () => {
     // Call close() method

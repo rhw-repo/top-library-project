@@ -14,7 +14,6 @@ body {
   min-height: 100%;
 }
 
-
 :root {
   --secondary: #f5625d;
   --text-display: #ffff;
@@ -119,8 +118,8 @@ dialog {
   display: none;
 }
 
-/* Using dialog[open] to leverage native dialog behavior 
-   and accessibility. Note: not strictly BEM compliant. */
+/* Using dialog[open] to leverage native dialog
+behavior & accessibility. Note - not strictly BEM compliant */
 .dialog[open] {
   display: flex;
   justify-content: center;
@@ -137,7 +136,7 @@ dialog {
   padding: 1rem;
 }
 
-.dialog__form--close-btn {
+.dialog__close-btn {
   grid-row: 1 / 2;
   grid-column: 2 / 3;
   height: 2.5rem;
@@ -163,37 +162,37 @@ input {
   border: none;
 }
 
-.dialog__form__label--title {
+.dialog__label-title {
   grid-row: 2 / 3;
   grid-column: 1 / 2;
 }
 
-.dialog__form__input--author,
-.dialog__form__input--title {
+.dialog__input-author,
+.dialog__input-title {
   border-radius: 1rem;
 }
 
-.dialog__form__input--title {
+.dialog__input-title {
   grid-row: 2 / 3;
   grid-column: 2 / 3;
 }
 
-.dialog__form__label--author {
+.dialog__label-author {
   grid-row: 3 / 4;
   grid-column: 1 / 2;
 }
 
-.dialog__form__input--author {
+.dialog__input-author {
   grid-row: 3 / 4;
   grid-column: 2 / 3;
 }
 
-.dialog__form__label--pages {
+.dialog__label-pages {
   grid-row: 4 / 5;
   grid-column: 1 / 2;
 }
 
-.dialog__form__input--pages {
+.dialog__input-pages {
   grid-row: 4 / 5;
   grid-column: 2 / 3;
   padding: 1rem;
@@ -201,21 +200,20 @@ input {
   border-radius: 1rem;
 }
 
-.dialog__form__toggle-label {
+.dialog__toggle-label {
   grid-row: 5 / 6;
   grid-column: 1 / 2;
 }
 
-.dialog__form__toggle-switch {
+.dialog__toggle-switch {
   grid-row: 5 / 6;
   grid-column: 2 / 3;
   justify-self: start;
 }
 
-
 /* Toggle switch created by styling checkbox */
 /* Form rounded corner 'box' around the 'toggle switch' */
-.dialog__form__toggle {
+.dialog__toggle {
   position: relative;
   display: inline-block;
   width: 3.125rem;
@@ -226,7 +224,7 @@ input {
 }
 
 /* Button to toggle */
-.dialog__form__toggle:after {
+.dialog__toggle:after {
   content: "";
   position: absolute;
   width: 1.5625rem;
@@ -239,17 +237,17 @@ input {
 }
 
 /* Checkbox checked: toggle switch slid over effect */
-.dialog__form__checkbox:checked + .dialog__form__toggle::after {
+.dialog__checkbox:checked + .dialog__toggle::after {
   left: 1.53125rem;
 }
 
 /* Colors toggle switch 'box' after slid over */
-.dialog__form__checkbox:checked + .dialog__form__toggle {
-  background-color: #286A5C;
+.dialog__checkbox:checked + .dialog__toggle {
+  background-color: #286a5c;
 }
 
 /* Hide default checkbox display */
-.dialog__form__checkbox {
+.dialog__checkbox {
   position: absolute;
   opacity: 0;
   width: 0;
@@ -257,7 +255,7 @@ input {
   z-index: -1;
 }
 
-.dialog__form--submit-btn {
+.dialog__submit-btn {
   grid-row: 6 / 7;
   grid-column: 1 / -1;
   justify-self: center;
