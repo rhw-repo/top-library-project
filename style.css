@@ -94,12 +94,12 @@ main {
 }
 
 /* Navbar */
-.navbar {
+.nav {
   grid-area: navbar;
   justify-self: end;
 }
 
-.navbar__add-btn {
+.nav__add-btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -376,14 +376,14 @@ input {
     object-fit: contain;
   }
 
-  .navbar,
+  .nav,
   .library-container,
   .footer {
     width: 100%;
     margin: 0;
   }
 
-  .navbar {
+  .nav {
     display: flex;
     justify-content: center;
     align-items: center;
