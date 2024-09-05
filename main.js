@@ -212,7 +212,7 @@ button.addEventListener("click", () => {
  * @constant {HTMLButtonElement} button - Closes dialog
  */
 document
-  .querySelector(".dialog__form--close-btn")
+  .querySelector(".dialog__close-btn")
   // Add event listener
   .addEventListener("click", () => {
     // Call close() method
