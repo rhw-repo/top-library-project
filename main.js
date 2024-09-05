@@ -53,7 +53,7 @@ function addBookToLibrary(title, author, pages, read) {
  */
 function displayBooks() {
   // Select the cards container. Store in a variable
-  const libraryContainer = document.querySelector(".library-container");
+  const libraryContainer = document.querySelector(".container");
   // Clear libraryContainer.
   while (libraryContainer.firstChild) {
     libraryContainer.removeChild(libraryContainer.firstChild);
@@ -63,31 +63,31 @@ function displayBooks() {
   myLibrary.forEach((book, index) => {
     // Create a card as a container for each book's data
     const bookContainer = document.createElement("div");
-    bookContainer.classList.add("book");
+    bookContainer.classList.add("card");
 
     // Create each element required within container, add classes
     const bookTitleLabel = document.createElement("span");
-    bookTitleLabel.classList.add("book__label", "book__label--title");
+    bookTitleLabel.classList.add("card__label", "card__label--title");
     const bookName = document.createElement("span");
-    bookName.classList.add("book__name");
+    bookName.classList.add("card__name");
 
     const bookAuthorLabel = document.createElement("span");
-    bookAuthorLabel.classList.add("book__label", "book__label--author");
+    bookAuthorLabel.classList.add("card__label", "card__label--author");
     const bookAuthor = document.createElement("span");
-    bookAuthor.classList.add("book__author");
+    bookAuthor.classList.add("card__author");
 
     const bookPagesLabel = document.createElement("span");
-    bookPagesLabel.classList.add("book__label", "book__label--pages");
+    bookPagesLabel.classList.add("card__label", "card__label--pages");
     const bookPages = document.createElement("span");
-    bookPages.classList.add("book__pages");
+    bookPages.classList.add("card__pages");
 
     const bookReadLabel = document.createElement("span");
-    bookReadLabel.classList.add("book__label", "book__label--read");
+    bookReadLabel.classList.add("card__label", "card__label--read");
     const bookRead = document.createElement("span");
-    bookRead.classList.add("book__read");
+    bookRead.classList.add("card__read");
 
     const deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("book__delete");
+    deleteBtn.classList.add("card__delete");
     const trashIcon = document.createElement("i");
     trashIcon.classList.add("fa-solid", "fa-trash", "fa-2x");
     deleteBtn.appendChild(trashIcon);

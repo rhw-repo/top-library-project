@@ -30,7 +30,6 @@
 // Add this at the very beginning of main.js
 //console.log('main.js is loaded and running');
 
-
 /*try {
   // Test if DOMPurify is loaded correctly
   if (typeof DOMPurify === 'undefined') {
@@ -46,11 +45,10 @@ console.log('Original Input:', testInput); // Log the raw, potentially unsafe in
 const cleanOutput = DOMPurify.sanitize(testInput);
 console.log('Sanitized Output:', cleanOutput); // This will show the sanitized version, without harmful attributes*/
 
-
-/** 
+/**
  * Array of Book objects
- * @type {Book[]} 
-*/
+ * @type {Book[]}
+ */
 const myLibrary = [];
 
 /**
@@ -69,28 +67,47 @@ function Book(title, author, pages, read) {
   console.log(this);
 }
 
-// Example book to check Book function runs and show book format to user
+/**
+ * Provide an example book. Adds it to the library.
+ * Demonstrates the format of the Book object.
+ */
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not read yet");
 myLibrary.push(theHobbit);
 console.log(myLibrary);
+// Update UI to display the example book
 displayBooks();
 
-// Push a new book to array, is later called with form input data passed to it
+/**
+ * Push a new book to array
+ * @param {string} title - The title of the book.
+ * @param {string} author - The author of the book.
+ * @param {number} pages - The number of pages in the book.
+ * @param {boolean} read -  Indicates if the book has been read
+ *                          (true if read, otherwise false ).
+ */
 function addBookToLibrary(title, author, pages, read) {
   // Create a new Book object
   const newBook = new Book(title, author, pages, read);
   // Push this new Book object to the array
   myLibrary.push(newBook);
+  /* Log the updated library and new book for debugging
   console.log("Updated library:", myLibrary);
   console.log(newBook);
-  // Call displayBooks() to append the new Book object to the DOM
+  */
+  /* Update UI by calling displayBooks(), 
+  appends the new Book object to the DOM */
   displayBooks();
 }
 
+/**
+ * Updates UI to display only Book objects in myLibrary array
+ * Adds delete button to each Book object's card to remove if required
+ *
+ */
 function displayBooks() {
-  // Select the cards container and store it in a variable
+  // Select the cards container. Store in a variable
   const libraryContainer = document.querySelector(".library-container");
-  // Clear libraryConatiner using while loop before displaying new input
+  // Clear libraryContainer.
   while (libraryContainer.firstChild) {
     libraryContainer.removeChild(libraryContainer.firstChild);
   }
@@ -160,11 +177,18 @@ function displayBooks() {
   });
 }
 
-// Select the form, add Event Listener to form's submit event
+/**
+ * Handles submission of add-book form. Prevents default form behavior,
+ * extracts and sanitizes user input, passes it to addBookToLibrary
+ * function, clears form fields and closes the dialog.
+ * @constant addForm - Form element that collects new book data.
+ * @listens submit - Listens for form submit event to trigger book addition.
+ */
 const addForm = document.getElementById("add-book");
-console.log("Form selected:", addForm); 
+// console.log("Form selected:", addForm);
+// Attach event listener to handle form submission
 addForm.addEventListener("submit", function (e) {
-  // Prevent default submission as functions should run instead
+  // Prevent default submission (avoid page reload)
   e.preventDefault();
   // Extract form data
   const title = this.querySelector('input[name="title"]').value;
@@ -172,16 +196,15 @@ addForm.addEventListener("submit", function (e) {
   const pages = this.querySelector('input[name="pages"]').value;
   const read = this.querySelector('input[id="switch"]').checked;
 
- 
   /* Log the raw inputs to console for comparison
   console.log("Raw Form data:", { title, author, pages, read });*/
 
-   // Sanitize inputs using DOMPurify
-   const sanitizedTitle = DOMPurify.sanitize(title);
-   const sanitizedAuthor = DOMPurify.sanitize(author);
-   const sanitizedPages = DOMPurify.sanitize(pages);
- 
-   /* Log sanitized inputs to console for verification
+  // Sanitize inputs
+  const sanitizedTitle = DOMPurify.sanitize(title);
+  const sanitizedAuthor = DOMPurify.sanitize(author);
+  const sanitizedPages = DOMPurify.sanitize(pages);
+
+  /* Log sanitized inputs to console for verification
    console.log("Sanitized Form data:", {
      title: sanitizedTitle,
      author: sanitizedAuthor,
@@ -189,36 +212,41 @@ addForm.addEventListener("submit", function (e) {
      read,
    });*/
 
-// Call addBookToLibrary passing in sanitized form data
-addBookToLibrary(sanitizedTitle, sanitizedAuthor, sanitizedPages, read);
+  // Call addBookToLibrary passing in sanitized form data
+  addBookToLibrary(sanitizedTitle, sanitizedAuthor, sanitizedPages, read);
 
   // Clear form fields after submission
   this.reset();
   document.querySelector("#dialog").close();
 });
 
-// Select the dialog
+/**
+ * Open dialog, prevent interaction with rest of page until closed.
+ *
+ * @constant {HTMLDialogElement} dialog - To add new books.
+ * @constant {HTMLButtonElement} button - To open dialog.
+ */
 const dialog = document.querySelector("#dialog");
 // Select the Add New button
 const button = document.querySelector("#add");
 // Add Event Listener to that button
 button.addEventListener("click", () => {
-  // Have dialog working as a true modal
+  // Prevent interaction with page until dialog closed
   dialog.showModal();
 });
 
-// Select the close button within dialog
+/**
+ * Adds event listener to dialog button to close dialog
+ * @constant {HTMLButtonElement} button - Closes dialog
+ */
 document
   .querySelector(".dialog__form--close-btn")
   // Add event listener
   .addEventListener("click", () => {
-    // call close() method
+    // Call close() method
     dialog.close();
   });
-
-/*} catch (error) {
-  console.error('An error occurred:', error);
-}*/</code></pre>
+</code></pre>
         </article>
     </section>
 
@@ -228,13 +256,13 @@ document
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Book.html">Book</a></li></ul><h3>Global</h3><ul><li><a href="global.html#myLibrary">myLibrary</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Book.html">Book</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addBookToLibrary">addBookToLibrary</a></li><li><a href="global.html#addForm">addForm</a></li><li><a href="global.html#button">button</a></li><li><a href="global.html#displayBooks">displayBooks</a></li><li><a href="global.html#myLibrary">myLibrary</a></li><li><a href="global.html#theHobbit">theHobbit</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Wed Sep 04 2024 15:05:03 GMT+0100 (Western European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Thu Sep 05 2024 10:26:19 GMT+0100 (Western European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>
