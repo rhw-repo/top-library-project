@@ -14,8 +14,15 @@ body {
   min-height: 100%;
 }
 
+
 :root {
-  --primary: linear-gradient(
+  --secondary: #f5625d;
+  --text-display: #ffff;
+  --text-glow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+body {
+  background: linear-gradient(
     270deg,
     hsl(158deg 39% 34%) 0%,
     hsl(162deg 42% 32%) 24%,
@@ -28,13 +35,6 @@ body {
     hsl(181deg 44% 20%) 91%,
     hsl(183deg 42% 20%) 100%
   );
-  --secondary: #f5625d;
-  --text-display: #ffff;
-  --text-glow: 0 0 5px rgba(255, 255, 255, 0.5);
-}
-
-body {
-  background-image: var(--primary);
 }
 
 main {
@@ -47,6 +47,7 @@ main {
   min-height: 100dvh;
 }
 
+/* Header section */
 .header {
   grid-area: header;
   position: fixed;
@@ -81,7 +82,6 @@ main {
   font-weight: 600;
 }
 
-/* Responsive sizing */
 .header__img {
   display: flex;
   align-self: flex-start;
@@ -93,6 +93,7 @@ main {
   margin: 0;
 }
 
+/* Navbar */
 .navbar {
   grid-area: navbar;
   justify-self: end;
@@ -113,6 +114,7 @@ main {
   margin: 1rem;
 }
 
+/* Dialog contains add book form */
 dialog {
   display: none;
 }
@@ -208,7 +210,9 @@ input {
   justify-self: start;
 }
 
-/* Forms the 'box' around the toggle switch*/
+
+/* Toggle switch created by styling checkbox */
+/* Form rounded corner 'box' around the 'toggle switch' */
 .dialog__form__toggle {
   position: relative;
   display: inline-block;
@@ -219,7 +223,7 @@ input {
   border: 0.0625rem solid gray;
 }
 
-/* After slide changes */
+/* Button to toggle */
 .dialog__form__toggle:after {
   content: "";
   position: absolute;
@@ -237,9 +241,9 @@ input {
   left: 1.53125rem;
 }
 
-/* Initial colors before toggle switch slid over */
+/* Colors toggle switch 'box' after slid over */
 .dialog__form__checkbox:checked + .dialog__form__toggle {
-  background-color: var(--primary);
+  background-color: #286A5C;
 }
 
 /* Hide default checkbox display */
@@ -264,7 +268,7 @@ input {
   font-size: 2rem;
 }
 
-/* Container holding the cards */
+/* Container displays the book cards */
 .library-container {
   grid-area: main;
   justify-self: center;
@@ -303,7 +307,7 @@ input {
   font-weight: bold;
 }
 
-/* Delete button */
+/* Delete button for each book card */
 .book__delete {
   grid-column: span 2;
   justify-self: end;
@@ -317,6 +321,7 @@ input {
   cursor: pointer;
 }
 
+/* Footer section */
 .footer {
   grid-area: footer;
   display: flex;
@@ -364,7 +369,6 @@ input {
     justify-content: center;
     align-items: center;
     z-index: 10;
-    border: 2px solid white;
   }
 
   .header__img {
