@@ -22,7 +22,7 @@
     </header>
 
     <nav class="nav">
-        <button class="nav__add-btn" id="add"><span>
+        <button class="nav__add-btn" id="add" aria-label="add book button"><span>
           <i class="fa-solid fa-book-medical"></i></span></i>
         Add book
       </button>
@@ -35,7 +35,8 @@
         <form method="dialog" class="dialog__form" id="add-book">
           <button 
           type="button" 
-          class="dialog__close-btn">
+          class="dialog__close-btn"
+          aria-label="Close modal button">
           X
           </button>
           <label for="title" 
