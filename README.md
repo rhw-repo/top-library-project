@@ -7,6 +7,7 @@
 - JavaScript JSDoc comments
 - Formatted with Prettier, linted with ESLint & markdownlint
 - Added Dockerfile & docker-compose.yml for future use
+- Dynamic JavaScript content could be made more accessible as a future task
 
 ## Project Instructions
 
