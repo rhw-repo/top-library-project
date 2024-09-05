@@ -3,6 +3,9 @@
 - JavaScript, HTML, CSS
 - woff & woff2 self-hosted fonts
 - DOMPurify via npm to sanitize input
+- CSS BEM naming conventions
+- JavaScript JSDoc comments
+- Formatted with Prettier, linted with ESLint & markdownlint
 - Added Dockerfile & docker-compose.yml for future use
 
 ## Project Instructions
