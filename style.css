@@ -119,6 +119,8 @@ dialog {
   display: none;
 }
 
+/* Using dialog[open] to leverage native dialog
+behavior & accessibility. Note - not strictly BEM compliant */
 .dialog[open] {
   display: flex;
   justify-content: center;
