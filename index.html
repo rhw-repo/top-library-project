@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css" />
     <script src="https://kit.fontawesome.com/a25906fcbb.js" 
     crossorigin="anonymous"></script>
-    <!--This resource is failing to load-->
     <script src="./purify.min.js"></script>
   </head>
 
@@ -29,7 +28,7 @@
     </nav>
 
       <dialog class="dialog" id="dialog">
-        <!--If action attribute omitted action set to current page-->
+        <!--Form action attribute omitted - there is no server to send data to-->
         <form method="dialog" class="dialog__form" id="add-book">
           <button 
           type="button" 
@@ -37,29 +36,29 @@
           X
           </button>
           <label for="title" 
-          class="dialog__form__label--title">
+          class="dialog__label-title">
           Title:
           </label>
           <input 
           type="text" 
           name="title" 
-          class="dialog__form__input--title" 
+          class="dialog__input-title" 
           required 
           aria-required="true" 
           />
           <label for="author" 
-          class="dialog__form__label--author">
+          class="dialog__label-author">
           Written by:
           </label>
           <input 
           type="text" 
           name="author" 
-          class="dialog__form__input--author" 
+          class="dialog__input-author" 
           required 
           aria-required="true"/>
           <label for="pages" 
           id="pages" 
-          class="dialog__form__label--pages">
+          class="dialog__label-pages">
           No. of pages:
           </label>
           <input 
@@ -68,21 +67,21 @@
           value="1" 
           name="pages" 
           id="pages" 
-          class="dialog__form__input--pages">
+          class="dialog__input-pages">
           
           <div 
-          class="dialog__form__toggle-label" 
+          class="dialog__toggle-label" 
           aria-label="Section to mark if the book has been read">
             <b>Mark as read</b>
             <br /><br />
           </div>
-          <div class="dialog__form__toggle-switch">
+          <div class="dialog__toggle-switch">
             <input 
             type="checkbox" 
             id="switch" 
-            class="dialog__form__checkbox"/>
+            class="dialog__checkbox"/>
             <label for="switch" 
-            class="dialog__form__toggle" 
+            class="dialog__toggle" 
             aria-label="Toggle switch to mark if the book has been read"> 
             </label>
           </div>
@@ -90,7 +89,8 @@
           <button 
           id="submit-btn" 
           type="submit" 
-          class="dialog__form--submit-btn" >
+          class="dialog__submit-btn"
+          >
           Submit
           </button>
         </form>
