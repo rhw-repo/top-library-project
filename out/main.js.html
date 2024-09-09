@@ -26,26 +26,7 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// Test if main.js and if DOMPurify are loaded correctly
-// Add this at the very beginning of main.js
-//console.log('main.js is loaded and running');
-
-/*try {
-  // Test if DOMPurify is loaded correctly
-  if (typeof DOMPurify === 'undefined') {
-      console.error('DOMPurify is not loaded or not defined.');
-  } else {
-      console.log('DOMPurify is loaded correctly.');
-  }
-
- // Test code to confirm DOMPurify is working
-const testInput = '&lt;img src="x" onerror="alert(\'test\')">This is a test&lt;/img>';
-console.log('Original Input:', testInput); // Log the raw, potentially unsafe input
-
-const cleanOutput = DOMPurify.sanitize(testInput);
-console.log('Sanitized Output:', cleanOutput); // This will show the sanitized version, without harmful attributes*/
-
-/**
+            <pre class="prettyprint source linenums"><code>/**
  * Array of Book objects
  * @type {Book[]}
  */
@@ -64,7 +45,6 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  console.log(this);
 }
 
 /**
@@ -73,7 +53,6 @@ function Book(title, author, pages, read) {
  */
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not read yet");
 myLibrary.push(theHobbit);
-console.log(myLibrary);
 // Update UI to display the example book
 displayBooks();
 
@@ -90,10 +69,6 @@ function addBookToLibrary(title, author, pages, read) {
   const newBook = new Book(title, author, pages, read);
   // Push this new Book object to the array
   myLibrary.push(newBook);
-  /* Log the updated library and new book for debugging
-  console.log("Updated library:", myLibrary);
-  console.log(newBook);
-  */
   /* Update UI by calling displayBooks(), 
   appends the new Book object to the DOM */
   displayBooks();
@@ -106,7 +81,7 @@ function addBookToLibrary(title, author, pages, read) {
  */
 function displayBooks() {
   // Select the cards container. Store in a variable
-  const libraryContainer = document.querySelector(".library-container");
+  const libraryContainer = document.querySelector(".container");
   // Clear libraryContainer.
   while (libraryContainer.firstChild) {
     libraryContainer.removeChild(libraryContainer.firstChild);
@@ -116,31 +91,31 @@ function displayBooks() {
   myLibrary.forEach((book, index) => {
     // Create a card as a container for each book's data
     const bookContainer = document.createElement("div");
-    bookContainer.classList.add("book");
-
+    bookContainer.classList.add("card");
+   
     // Create each element required within container, add classes
     const bookTitleLabel = document.createElement("span");
-    bookTitleLabel.classList.add("book__label", "book__label--title");
+    bookTitleLabel.classList.add("card__label", "card__label--title");
     const bookName = document.createElement("span");
-    bookName.classList.add("book__name");
+    bookName.classList.add("card__name");
 
     const bookAuthorLabel = document.createElement("span");
-    bookAuthorLabel.classList.add("book__label", "book__label--author");
+    bookAuthorLabel.classList.add("card__label", "card__label--author");
     const bookAuthor = document.createElement("span");
-    bookAuthor.classList.add("book__author");
+    bookAuthor.classList.add("card__author");
 
     const bookPagesLabel = document.createElement("span");
-    bookPagesLabel.classList.add("book__label", "book__label--pages");
+    bookPagesLabel.classList.add("card__label", "card__label--pages");
     const bookPages = document.createElement("span");
-    bookPages.classList.add("book__pages");
+    bookPages.classList.add("card__pages");
 
     const bookReadLabel = document.createElement("span");
-    bookReadLabel.classList.add("book__label", "book__label--read");
+    bookReadLabel.classList.add("card__label", "card__label--read");
     const bookRead = document.createElement("span");
-    bookRead.classList.add("book__read");
+    bookRead.classList.add("card__read");
 
     const deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("book__delete");
+    deleteBtn.classList.add("card__delete");
     const trashIcon = document.createElement("i");
     trashIcon.classList.add("fa-solid", "fa-trash", "fa-2x");
     deleteBtn.appendChild(trashIcon);
@@ -185,7 +160,6 @@ function displayBooks() {
  * @listens submit - Listens for form submit event to trigger book addition.
  */
 const addForm = document.getElementById("add-book");
-// console.log("Form selected:", addForm);
 // Attach event listener to handle form submission
 addForm.addEventListener("submit", function (e) {
   // Prevent default submission (avoid page reload)
@@ -196,21 +170,10 @@ addForm.addEventListener("submit", function (e) {
   const pages = this.querySelector('input[name="pages"]').value;
   const read = this.querySelector('input[id="switch"]').checked;
 
-  /* Log the raw inputs to console for comparison
-  console.log("Raw Form data:", { title, author, pages, read });*/
-
   // Sanitize inputs
   const sanitizedTitle = DOMPurify.sanitize(title);
   const sanitizedAuthor = DOMPurify.sanitize(author);
   const sanitizedPages = DOMPurify.sanitize(pages);
-
-  /* Log sanitized inputs to console for verification
-   console.log("Sanitized Form data:", {
-     title: sanitizedTitle,
-     author: sanitizedAuthor,
-     pages: sanitizedPages,
-     read,
-   });*/
 
   // Call addBookToLibrary passing in sanitized form data
   addBookToLibrary(sanitizedTitle, sanitizedAuthor, sanitizedPages, read);
@@ -240,7 +203,7 @@ button.addEventListener("click", () => {
  * @constant {HTMLButtonElement} button - Closes dialog
  */
 document
-  .querySelector(".dialog__form--close-btn")
+  .querySelector(".dialog__close-btn")
   // Add event listener
   .addEventListener("click", () => {
     // Call close() method
@@ -262,7 +225,7 @@ document
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Thu Sep 05 2024 10:26:19 GMT+0100 (Western European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Fri Sep 06 2024 15:16:52 GMT+0100 (Western European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>
